@@ -60,6 +60,8 @@ mysqli_close($conn);
 
         <main>
 
+        <h2><a href="bewerk.php" > NIEUWS BEWERKEN </a></h2>
+
             <?php
             // TONEN VAN NIEUWSBERICHTEN
             foreach ($array_nieuws as $nieuws) {
