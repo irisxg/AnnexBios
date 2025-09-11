@@ -4,7 +4,8 @@ session_start();
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "annexbios"; // Nieuwe database
+$dbname = "annexbios"; 
+// Nieuwe database
 
 // Maak verbinding met de database
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -14,24 +15,25 @@ if ($conn->connect_error) {
     die("Verbinding mislukt: " . $conn->connect_error);
 }
 
-// NIEUWS UIT DATABASE HALEN
+// Nieuws uit database halen
 $array_nieuws = []; // Lege array om nieuwsberichten op te slaan
 
-$sql = "SELECT id, titel, afbeelding, publiceerdatum, beschrijving FROM nieuws"; 
-$result = mysqli_query($conn, $sql);
+$stmt = $conn->prepare("SELECT id, titel, afbeelding, publiceerdatum, beschrijving FROM nieuws");
+$stmt->execute();
+$result = $stmt->get_result();
 
-if ($result === false) {
-    die("Fout bij uitvoeren van query: " . mysqli_error($conn));
-} else {
-    while ($row = mysqli_fetch_assoc($result)) {
-        $array_nieuws[] = $row;
-    }
+$array_nieuws = [];
+while ($row = $result->fetch_assoc()) {
+    $array_nieuws[] = $row;
 }
 
-// VERBINDING SLUITEN
+
+// Verbinding sluiten
 mysqli_close($conn);
 ?>
 
+<!--Alles kababcase-->
+<!--commets, classes ect. in nederlands-->
 <!doctype html>
 <html class="no-js" lang="nl">
 
@@ -60,7 +62,7 @@ mysqli_close($conn);
 
         <main>
 
-        <h2><a href="bewerk.php" > NIEUWS BEWERKEN </a></h2>
+        <h2><a href="bewerk.php" > NIEUWS TOEVOEGEN </a></h2>
 
             <?php
             // TONEN VAN NIEUWSBERICHTEN
