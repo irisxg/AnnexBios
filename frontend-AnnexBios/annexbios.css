@@ -1,0 +1,174 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #fff;
+}
+
+main {
+  position: relative;
+  height: 100vh;
+  background-image: url("./img/achtergrondbios.jpg");
+}
+
+.hoofd-header {
+  background: #fff;
+  padding: 20px 0;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-afbeelding {
+  height: 90px;
+}
+
+.hoofd-navigatie {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.navigatie-lijst {
+  display: flex;
+  list-style: none;
+  gap: 60px;
+}
+
+.navigatie-link {
+  text-decoration: none;
+  color: #666;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+.navigatie-link:hover {
+  color: #666;
+}
+
+.ticket-sectie {
+  background: #666;
+  padding: 15px 0;
+}
+
+.ticket-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  padding: 0 40px;
+}
+
+.ticket-titel {
+  color: #fff;
+  font-size: 18px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.ticket-formulier {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.locatie-selectie,
+.tickets-knop {
+  border: none;
+  font-size: 14px;
+  border-radius: 0;
+  cursor: pointer;
+}
+.locatie-selectie {
+  background: #999;
+  color: #fff;
+  padding: 12px 20px;
+  min-width: 200px;
+  appearance: none;
+}
+.locatie-selectie option {
+  background: #999;
+  color: #fff;
+}
+.tickets-knop {
+  background: #ccc;
+  color: #666;
+  padding: 12px 25px;
+  text-transform: uppercase;
+  transition: background 0.3s;
+}
+.tickets-knop:hover {
+  background: #bbb;
+}
+
+.zwart-vak {
+  background: #000;
+  color: #fff;
+  width: 800px;
+  height: 400px;
+  position: absolute;
+  top: calc(50% - 100px);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 8px;
+  box-sizing: border-box;
+  padding: 30px;
+  font-size: 16px;
+  line-height: 1.5;
+  position: relative;
+  z-index: 10;
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px 20px;
+  }
+  .navigatie-lijst {
+    gap: 20px;
+  }
+  .ticket-container {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+  .ticket-formulier {
+    flex-direction: column;
+    width: 100%;
+  }
+  .locatie-selectie,
+  .tickets-knop {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navigatie-lijst {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .logo::before {
+    font-size: 24px;
+  }
+}
