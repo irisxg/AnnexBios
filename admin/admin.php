@@ -41,8 +41,7 @@ mysqli_close($conn);
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Annexbios Nieuws</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/nieuws.css">
     <meta name="theme-color" content="#fafafa">
     <style>
         .nieuws-item {
@@ -57,11 +56,13 @@ mysqli_close($conn);
     </style>
 </head>
 
+<?php include './includes/header.php'; ?>
+
 <body>
     <div id="content">
 
         <main>
-
+<br><br>
         <h2><a href="bewerk.php" > NIEUWS TOEVOEGEN </a></h2>
 
             <?php
@@ -83,6 +84,6 @@ mysqli_close($conn);
     
     </div>
 </body>
-<?php include '../core/footer.php'; ?>
+<?php include './includes/footer.php'; ?>
 
 </html>

@@ -1,0 +1,108 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+footer {
+  font-family: Arial, sans-serif;
+  color: #fff;
+}
+
+/* Top section */
+.footer-top {
+  background: #666; /* grijs */
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 2rem 5%;
+  position: relative;
+}
+
+/* Left info */
+.footer-left {
+  flex: 1;
+}
+
+.footer-info .footer-logo {
+  width: 180px;
+  margin-bottom: 1rem;
+}
+
+.footer-info p {
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.footer-button {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: #fff;
+  color: #333;
+  text-decoration: none;
+  font-size: 14px;
+  transition: 0.3s ease;
+}
+
+.footer-button:hover {
+  background: black;
+  color: #fff;
+}
+
+/* Navigation */
+.footer-nav {
+  flex: 0.5;
+  margin-left: 3rem;
+}
+
+.footer-nav h3 {
+  margin-bottom: 1rem;
+}
+
+.footer-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-nav li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-nav a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-nav a:hover {
+  color: black;
+}
+
+
+/* Right film roll */
+.footer-right img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    opacity: 0.7;
+  
+}
+
+/* Bottom section */
+.footer-bottom {
+  background: #000;
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.footer-bottom a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.footer-bottom a:hover {
+  color: #666666;
+}
