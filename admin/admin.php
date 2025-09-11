@@ -70,7 +70,7 @@ mysqli_close($conn);
             ?>
                 <div class="nieuws-item">
                     <h2><?php echo $nieuws['titel']; ?></h2>
-                    <img src="assets/afbeelding/<?php echo $nieuws['afbeelding']; ?>" alt="<?php echo $nieuws['titel']; ?>">
+                    <img src="assets/img/<?php echo $nieuws['afbeelding']; ?>" alt="<?php echo $nieuws['titel']; ?>">
                     <p class="datum">Geproduceerd op: <?php echo date("d-m-Y", strtotime($nieuws['publiceerdatum'])); ?></p>
                     <p><?php echo $nieuws['beschrijving']; ?></p>
                 </div>
