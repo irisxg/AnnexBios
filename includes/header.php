@@ -1,7 +1,7 @@
  <header class="hoofd-header">
         <div class="header-container">
             <div class="logo">
-                <img src="img/annexlogo.png" alt="AnnexBios" class="logo-afbeelding">
+                <img src="assets/img/annexlogo.png" alt="AnnexBios" class="logo-afbeelding">
             </div>
             <nav class="hoofd-navigatie">
                 <ul class="navigatie-lijst">

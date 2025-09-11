@@ -1,5 +1,5 @@
 <?php
-session_start(); //hallo
+session_start(); 
 
 $servername = "localhost";
 $username = "root";
@@ -83,5 +83,6 @@ mysqli_close($conn);
     
     </div>
 </body>
+<?php include '../core/footer.php'; ?>
 
 </html>
