@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Annexbios Nieuws</title>
-    <link rel="stylesheet" href="assets/admin.css">
+    <link rel="stylesheet" href="assets/nieuws.css">
     <meta name="theme-color" content="#fafafa">
 </head>
 
@@ -16,15 +16,12 @@
 <body>
     <div id="content">
 
+        <main>
 
-        <main class="hero">
-            <div class="content">
-                <h1>Welkom</h1>
-                <p>tekst</p>
-            </div>
+voeg films toe 
         </main>
 
-
+    
     </div>
 </body>
 <?php include './includes/footer.php'; ?>

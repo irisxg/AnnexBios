@@ -6,13 +6,10 @@
   <div class="footer-top">
     <div class="footer-left">
       <div class="footer-info">
-        <img src="./assets/img/Schermafbeelding 2025-09-11 142742.png" alt="AnnexBios logo" class="footer-logo">
+        <img src="./assets/img/annexbioslogo.png" alt="AnnexBios logo" class="footer-logo">
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean commodo ligula eget
-          dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,
-          nascetur ridiculus mus. Donec quam felis,
+          Welkom in het hart van het systeem. Deze admin-omgeving is ontworpen om je overzicht, controle en gemak te bieden. Of je nu data beheert, instellingen wijzigt of nieuwe ideeën test: alles wat je doet draagt bij aan een soepel draaiend platform. Achter elk succesvol systeem staat een beheerder die het draaiend houdt – en in dit dashboard ben jij degene die orde schept in de chaos en visie brengt in de cijfers. Dank voor je inzet: elke wijziging die je maakt helpt gebruikers verder en tilt het platform naar een hoger niveau.
         </p>
-        <a href="#" class="footer-button">LEES MEER</a>
       </div>
     </div>
 
@@ -24,7 +21,7 @@
 
   <div class="footer-bottom">
     <p>
-      <a href="#">Voorwaarden</a> | <a href="#">Privacy beleid</a> | <a href="#">Cookie disclaimer</a>
+        AnnexBios 
     </p>
   </div>
 </footer>
