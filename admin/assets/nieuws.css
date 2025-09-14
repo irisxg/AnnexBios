@@ -1,0 +1,37 @@
+.nieuws-detail {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.nieuws-detail img {
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+
+.verwijderen-knop {
+    margin-top: 1em;
+    padding: 0.6em 1.2em;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.verwijderen-knop:hover {
+    background-color: #c82333;
+}
+
+.verwijderen-knop {
+    margin-top: 1em;
+    padding: 0.6em 1.2em;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.verwijderen-knop:hover {
+    background-color: #c82333;
+}

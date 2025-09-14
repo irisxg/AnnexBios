@@ -1,10 +1,10 @@
 <?php
-session_start(); 
+session_start();
 
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "annexbios"; 
+$dbname = "annexbios";
 // Nieuwe database
 
 // Maak verbinding met de database
@@ -18,7 +18,8 @@ if ($conn->connect_error) {
 // Nieuws uit database halen
 $array_nieuws = []; // Lege array om nieuwsberichten op te slaan
 
-$stmt = $conn->prepare("SELECT id, titel, afbeelding, publiceerdatum, beschrijving FROM nieuws");
+$stmt = $conn->prepare("SELECT id, titel, afbeelding, publiceerdatum, beschrijving FROM nieuws ORDER BY publiceerdatum DESC");
+
 $stmt->execute();
 $result = $stmt->get_result();
 
@@ -48,6 +49,7 @@ mysqli_close($conn);
             border-bottom: 1px solid #ccc;
             padding: 15px 0;
         }
+
         .nieuws-item img {
             max-width: 300px;
             display: block;
@@ -62,26 +64,27 @@ mysqli_close($conn);
     <div id="content">
 
         <main>
-<br><br>
-        <h2><a href="nieuwstoevoegen.php" > NIEUWS TOEVOEGEN </a></h2>
+            <br><br>
+            <h2><a href="nieuwstoevoegen.php"> NIEUWS TOEVOEGEN </a></h2>
 
             <?php
             // TONEN VAN NIEUWSBERICHTEN
             foreach ($array_nieuws as $nieuws) {
             ?>
                 <div class="nieuws-item">
-                    <h2><?php echo $nieuws['titel']; ?></h2>
+                    <h2><a href="nieuwsdetail.php?id=<?php echo $nieuws['id']; ?>"><?php echo $nieuws['titel']; ?></h2>
                     <img src="assets/img/<?php echo $nieuws['afbeelding']; ?>" alt="<?php echo $nieuws['titel']; ?>">
                     <p class="datum">Geproduceerd op: <?php echo date("d-m-Y", strtotime($nieuws['publiceerdatum'])); ?></p>
-                    <p><?php echo $nieuws['beschrijving']; ?></p>
+                    <p><?php echo $nieuws['beschrijving']; ?></p> </a>
                 </div>
+
             <?php
             }
             ?>
 
         </main>
 
-    
+
     </div>
 </body>
 <?php include './includes/footer.php'; ?>
