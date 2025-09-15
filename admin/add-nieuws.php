@@ -42,58 +42,14 @@ $conn->close();
 ?>
 <!doctype html>
 <html lang="nl">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Nieuwsbericht toevoegen</title>
     <link rel="stylesheet" href="assets/nieuws.css">
-    <style>
-        .formulier {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        label {
-            display: block;
-            margin-top: 1em;
-            font-weight: bold;
-        }
-
-        input[type="text"],
-        input[type="date"],
-        textarea {
-            width: 100%;
-            padding: 0.5em;
-            box-sizing: border-box;
-        }
-
-        input[type="file"] {
-            margin-top: 0.5em;
-        }
-
-        input[type="submit"] {
-            margin-top: 1.5em;
-            padding: 0.6em 1.2em;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 4px;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #0056b3;
-        }
-
-        .terug-knop {
-            display: block;
-            margin-top: 1em;
-            color: #000;
-            text-decoration: none;
-        }
-    </style>
 </head>
+
 <body>
     <div id="content">
         <?php include "includes/header.php"; ?>
@@ -123,4 +79,5 @@ $conn->close();
         <?php include "includes/footer.php"; ?>
     </div>
 </body>
+
 </html>

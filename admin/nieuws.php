@@ -43,19 +43,7 @@ mysqli_close($conn);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Annexbios Nieuws</title>
     <link rel="stylesheet" href="assets/nieuws.css">
-    <meta name="theme-color" content="#fafafa">
-    <style>
-        .nieuws-item {
-            border-bottom: 1px solid #ccc;
-            padding: 15px 0;
-        }
-
-        .nieuws-item img {
-            max-width: 300px;
-            display: block;
-            margin-bottom: 10px;
-        }
-    </style>
+    <meta name="theme-color" content="#ffffffff">
 </head>
 
 <?php include './includes/header.php'; ?>
@@ -63,9 +51,10 @@ mysqli_close($conn);
 <body>
     <div id="content">
 
-        <main>
+        <main class="gloedpagina">
             <br><br>
-            <h2><a href="nieuwstoevoegen.php"> NIEUWS TOEVOEGEN </a></h2>
+            <h2><a href="add-nieuws.php" class="toevoeg-link">NIEUWS TOEVOEGEN</a></h2>
+
 
             <?php
             // TONEN VAN NIEUWSBERICHTEN
@@ -73,10 +62,18 @@ mysqli_close($conn);
             ?>
                 <div class="nieuws-item">
                     <h2><a href="nieuwsdetail.php?id=<?php echo $nieuws['id']; ?>"><?php echo $nieuws['titel']; ?></h2>
-                    <img src="assets/img/<?php echo $nieuws['afbeelding']; ?>" alt="<?php echo $nieuws['titel']; ?>">
-                    <p class="datum">Geproduceerd op: <?php echo date("d-m-Y", strtotime($nieuws['publiceerdatum'])); ?></p>
-                    <p><?php echo $nieuws['beschrijving']; ?></p> </a>
+                    <div class="nieuws-content">
+                        <div class="links">
+                            <img src="assets/img/<?php echo $nieuws['afbeelding']; ?>" alt="<?php echo $nieuws['titel']; ?>">
+                            <p class="datum">Geproduceerd op: <?php echo date("d-m-Y", strtotime($nieuws['publiceerdatum'])); ?></p>
+                        </div>
+                        <div class="beschrijving">
+                            <p><?php echo $nieuws['beschrijving']; ?></p>
+                        </div>
+                    </div></a>
                 </div>
+
+
 
             <?php
             }

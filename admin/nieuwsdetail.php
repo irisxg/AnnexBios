@@ -63,7 +63,7 @@ if (isset($_POST['delete'])) {
     <?php include './includes/header.php'; ?>
 
     <main>
-        <div class="nieuws-detail">
+        <div>
             <h1><?php echo htmlspecialchars($nieuws['titel']); ?></h1>
             <img src="assets/img/<?php echo htmlspecialchars($nieuws['afbeelding']); ?>" alt="<?php echo htmlspecialchars($nieuws['titel']); ?>">
             <p class="datum">Geplaatst op: <?php echo date("d-m-Y", strtotime($nieuws['publiceerdatum'])); ?></p>

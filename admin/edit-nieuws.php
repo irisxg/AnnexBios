@@ -58,51 +58,7 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Nieuwsbericht aanpassen</title>
     <link rel="stylesheet" href="assets/nieuws.css">
-    <style>
-        .formulier {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-        }
 
-        .form-group {
-            margin-bottom: 1em;
-        }
-
-        label {
-            margin-bottom: 0.5em;
-            font-weight: bold;
-            display: block;
-        }
-
-        input[type="text"],
-        input[type="date"],
-        textarea {
-            width: 100%;
-            padding: 0.5em;
-            box-sizing: border-box;
-        }
-
-        input[type="submit"] {
-            padding: 0.6em 1.2em;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 4px;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #0056b3;
-        }
-
-        .terug-knop {
-            display: block;
-            margin-top: 1em;
-            color: #000;
-            text-decoration: none;
-        }
-    </style>
 </head>
 
 <body>
