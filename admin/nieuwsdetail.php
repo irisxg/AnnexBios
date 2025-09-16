@@ -56,27 +56,133 @@ if (isset($_POST['delete'])) {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?php echo htmlspecialchars($nieuws['titel']); ?></title>
-    <link rel="stylesheet" href="assets/nieuws.css">
+    <style>
+        /* Detailpagina styling */
+        main.nieuwsdetail {
+            background-color: #75757523;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+            box-sizing: border-box;
+        }
+
+        .nieuwsdetail-container {
+            max-width: 900px;
+            width: 100%;
+            background-color: transparent;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .nieuwsdetail-container h1 {
+            font-size: 2em;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .nieuwsdetail-container img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .nieuwsdetail-container .datum {
+            font-size: 0.9em;
+            color: #777;
+            margin-bottom: 20px;
+        }
+
+        .nieuwsdetail-container p {
+            font-size: 1em;
+            line-height: 1.6;
+            color: #000;
+            margin-bottom: 30px;
+        }
+
+        /* Knoppen */
+        .terug-knop,
+        .verwijderen-knop {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-right: 10px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .terug-knop {
+            background-color: #ffb7f1ff;
+            color: white;
+        }
+
+        .terug-knop:hover {
+            background-color: #ff88e7ff;
+        }
+
+        .verwijderen-knop {
+            background-color: #d981ffff;
+            color: white;
+        }
+
+        .verwijderen-knop:hover {
+            background-color: #d981ffff;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .nieuwsdetail-container img {
+                max-width: 100%;
+            }
+
+            .terug-knop,
+            .verwijderen-knop {
+                display: block;
+                width: 100%;
+                margin-bottom: 10px;
+                text-align: center;
+            }
+        }
+
+        .link a {
+            text-decoration: none;
+            color: inherit;
+        }
+    </style>
 </head>
 
 <body>
     <?php include './includes/header.php'; ?>
 
-    <main>
-        <div>
-            <h1><?php echo htmlspecialchars($nieuws['titel']); ?></h1>
-            <img src="assets/img/<?php echo htmlspecialchars($nieuws['afbeelding']); ?>" alt="<?php echo htmlspecialchars($nieuws['titel']); ?>">
-            <p class="datum">Geplaatst op: <?php echo date("d-m-Y", strtotime($nieuws['publiceerdatum'])); ?></p>
-            <p><?php echo nl2br(htmlspecialchars($nieuws['beschrijving'])); ?></p>
+    <main class="nieuwsdetail">
+        <div class="nieuwsdetail-container">
+
+            <div class="link">
+                <h3><a href="nieuws.php">&lt; Terug</a></h3>
+            </div>
+
+
+
+            <br><br>
+            <div>
+                <h1><?php echo htmlspecialchars($nieuws['titel']); ?></h1>
+                <img src="assets/img/<?php echo htmlspecialchars($nieuws['afbeelding']); ?>" alt="<?php echo htmlspecialchars($nieuws['titel']); ?>">
+                <p class="datum">Geplaatst op: <?php echo date("d-m-Y", strtotime($nieuws['publiceerdatum'])); ?></p>
+                <p><?php echo nl2br(htmlspecialchars($nieuws['beschrijving'])); ?></p>
+            </div>
+
+            <!-- Link om nieuwsbericht aan te passen -->
+            <a href="edit-nieuws.php?id=<?php echo $id; ?>" class="terug-knop">Nieuwsbericht aanpassen</a><br><br>
+            <!-- Verwijderknop met bevestiging -->
+            <form method="post" onsubmit="return confirm('Weet je zeker dat je dit nieuwsbericht wilt verwijderen?');">
+                <button type="submit" name="delete" class="verwijderen-knop">Nieuwsbericht verwijderen</button>
+            </form>
         </div>
-
-        <!-- Link om nieuwsbericht aan te passen -->
-        <a href="edit-nieuws.php?id=<?php echo $id; ?>" class="terug-knop">Nieuwsbericht aanpassen</a>
-        <!-- Verwijderknop met bevestiging -->
-        <form method="post" onsubmit="return confirm('Weet je zeker dat je dit nieuwsbericht wilt verwijderen?');">
-            <button type="submit" name="delete" class="verwijderen-knop">Nieuwsbericht verwijderen</button>
-        </form>
-
 
     </main>
 

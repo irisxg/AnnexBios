@@ -1,4 +1,4 @@
-/* Algemene pagina-opmaak */
+/* begin styling nieuws */
 
 main.gloedpagina {
     background-color: #75757523; /* Zwarte achtergrond */
@@ -94,3 +94,209 @@ main h2 a {
     color: #222222;
     cursor: pointer;
 }
+
+/* einde styling nieuws */
+
+/* begin css nieuws bewerkpagina */
+
+main {
+    background-color: #75757523;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+
+.formulier {
+    background-color: transparent;
+    max-width: 700px;
+    width: 100%;
+    padding: 30px;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+
+.formulier h2 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Formuliergroepen */
+.form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #444;
+}
+
+.form-group input[type="text"],
+.form-group input[type="date"],
+.form-group textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1em;
+    background-color: #fff;
+    color: #333;
+    resize: vertical;
+}
+
+.form-group textarea {
+    min-height: 120px;
+}
+
+/* Opslaan knop */
+.form-group input[type="submit"] {
+    background-color: #ffb7f1ff;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-group input[type="submit"]:hover {
+    background-color: #ff88e7ff;
+}
+
+/* Terugknop */
+.terug-knop {
+    display: inline-block;
+    margin-top: 20px;
+    background-color: #777;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.terug-knop:hover {
+    background-color: #555;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .formulier {
+        padding: 20px;
+    }
+
+    .form-group input[type="submit"],
+    .terug-knop {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* einde css nieuws bewerkpagina */
+
+/* begin css nieuws toevoegen pagina */
+
+
+main {
+    background-color: #75757523;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+
+.formulier {
+    background-color: transparent;
+    max-width: 700px;
+    width: 100%;
+    padding: 30px;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+
+.formulier h2 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Labels en invoervelden */
+.formulier label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #444;
+}
+
+.formulier input[type="text"],
+.formulier input[type="date"],
+.formulier input[type="file"],
+.formulier textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1em;
+    background-color: #fff;
+    color: #333;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+.formulier textarea {
+    min-height: 120px;
+}
+
+/* Submit knop */
+.formulier input[type="submit"] {
+    background-color: #ffb7f1ff;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.formulier input[type="submit"]:hover {
+    background-color: #ff88e7ff;
+}
+
+/* Terugknop */
+.terug-knop {
+    display: inline-block;
+    margin-top: 20px;
+    background-color: #777;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.terug-knop:hover {
+    background-color: #555;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .formulier {
+        padding: 20px;
+    }
+
+    .formulier input[type="submit"],
+    .terug-knop {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* einde css nieuws toevoegen pagina */

@@ -19,8 +19,8 @@
 
         <main class="hero">
             <div class="content">
-                <h1>Welkom</h1>
-                <p>tekst</p>
+                <h1>Admin pagina AnnexBios</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque consectetur unde molestias laboriosam placeat aliquid nostrum esse, aspernatur quidem facere deleniti porro, neque accusantium rerum quasi suscipit. Incidunt, aut assumenda?</p>
             </div>
         </main>
 
