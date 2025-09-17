@@ -1,0 +1,31 @@
+main.hero {
+    position: relative;
+    min-height: 100vh;
+    background-image: url("img/bioscoopstoel.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    box-sizing: border-box;
+    color: white;
+}
+
+/* overlay voor contrast */
+main.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    /* alles:0; */
+    background: rgba(0, 0, 0, 0.45);
+    pointer-events: none;
+}
+
+/* zorg dat de inhoud boven de overlay verschijnt */
+main.hero .content {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+}
