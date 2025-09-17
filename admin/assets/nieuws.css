@@ -153,7 +153,7 @@ main {
 
 /* Opslaan knop */
 .form-group input[type="submit"] {
-    background-color: #ffb7f1ff;
+    background-color: #FF8A9D;
     color: white;
     border: none;
     padding: 12px 20px;
@@ -164,7 +164,7 @@ main {
 }
 
 .form-group input[type="submit"]:hover {
-    background-color: #ff88e7ff;
+    background-color: #ff6b84;
 }
 
 /* Terugknop */
@@ -255,7 +255,7 @@ main {
 
 /* Submit knop */
 .formulier input[type="submit"] {
-    background-color: #ffb7f1ff;
+    background-color: #FF8A9D;
     color: white;
     border: none;
     padding: 12px 20px;
@@ -266,7 +266,7 @@ main {
 }
 
 .formulier input[type="submit"]:hover {
-    background-color: #ff88e7ff;
+    background-color: #ff6b84;
 }
 
 /* Terugknop */

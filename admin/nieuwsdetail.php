@@ -117,21 +117,21 @@ if (isset($_POST['delete'])) {
         }
 
         .terug-knop {
-            background-color: #ffb7f1ff;
+            background-color: #FF8A9D;
             color: white;
         }
 
         .terug-knop:hover {
-            background-color: #ff88e7ff;
+            background-color: #ff6b84;
         }
 
         .verwijderen-knop {
-            background-color: #d981ffff;
+            background-color: #000000ff;
             color: white;
         }
 
         .verwijderen-knop:hover {
-            background-color: #d981ffff;
+            background-color: #b80000ff;
         }
 
         /* Responsive */
@@ -177,7 +177,7 @@ if (isset($_POST['delete'])) {
             </div>
 
             <!-- Link om nieuwsbericht aan te passen -->
-            <a href="edit-nieuws.php?id=<?php echo $id; ?>" class="terug-knop">Nieuwsbericht aanpassen</a><br><br>
+            <a href="edit_nieuws.php?id=<?php echo $id; ?>" class="terug-knop">Nieuwsbericht aanpassen</a><br><br>
             <!-- Verwijderknop met bevestiging -->
             <form method="post" onsubmit="return confirm('Weet je zeker dat je dit nieuwsbericht wilt verwijderen?');">
                 <button type="submit" name="delete" class="verwijderen-knop">Nieuwsbericht verwijderen</button>

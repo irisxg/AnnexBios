@@ -53,7 +53,7 @@ mysqli_close($conn);
 
         <main class="gloedpagina">
             <br><br>
-            <h2><a href="add-nieuws.php" class="toevoeg-link">NIEUWS TOEVOEGEN</a></h2>
+            <h2><a href="add_nieuws.php" class="toevoeg-link">NIEUWS TOEVOEGEN</a></h2>
 
 
             <?php
