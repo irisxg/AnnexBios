@@ -162,12 +162,14 @@ if (isset($_POST['delete'])) {
         }
 
         .beschrijving {
-    max-width: 500px;
-    overflow-wrap: break-word; /* Zorgt dat woorden worden afgebroken */
-    word-wrap: break-word;     /* Voor oudere browsers */
-    white-space: normal;       /* Zorgt dat tekst automatisch naar volgende regel gaat */
-}
-
+            max-width: 500px;
+            overflow-wrap: break-word;
+            /* Zorgt dat woorden worden afgebroken */
+            word-wrap: break-word;
+            /* Voor oudere browsers */
+            white-space: normal;
+            /* Zorgt dat tekst automatisch naar volgende regel gaat */
+        }
     </style>
 </head>
 
@@ -191,7 +193,7 @@ if (isset($_POST['delete'])) {
 
                 </div>
             </div>
-
+<br>
             <a href="edit_nieuws.php?id=<?php echo $id; ?>" class="terug-knop">Nieuwsbericht aanpassen</a><br><br>
 
             <form method="post" onsubmit="return confirm('Weet je zeker dat je dit nieuwsbericht wilt verwijderen?');">
