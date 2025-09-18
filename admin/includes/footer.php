@@ -7,9 +7,7 @@
     <div class="footer-left">
       <div class="footer-info">
         <img src="./assets/img/annexbioslogo.png" alt="AnnexBios logo" class="footer-logo">
-        <p>
-          Welkom in het hart van het systeem. Deze admin-omgeving is ontworpen om je overzicht, controle en gemak te bieden. Of je nu data beheert, instellingen wijzigt of nieuwe ideeën test: alles wat je doet draagt bij aan een soepel draaiend platform. Achter elk succesvol systeem staat een beheerder die het draaiend houdt – en in dit dashboard ben jij degene die orde schept in de chaos en visie brengt in de cijfers. Dank voor je inzet: elke wijziging die je maakt helpt gebruikers verder en tilt het platform naar een hoger niveau.
-        </p>
+        <p> &copy;Iris, Sam, Mylène en Jop</p>
       </div>
     </div>
 

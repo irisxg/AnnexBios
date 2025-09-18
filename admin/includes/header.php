@@ -10,7 +10,7 @@
         <nav class="hoofd-navigatie">
             <ul class="navigatie-lijst">
                 <li><a href="admin.php" class="navigatie-link">Home</a></li>
-                <li><a href="vestegingen.php" class="navigatie-link">Vestegingen</a></li>
+                <li><a href="vestegingen.php" class="navigatie-link">Vestigingen</a></li>
                 <li><a href="films.php" class="navigatie-link">Films</a></li>
                 <li><a href="nieuws.php" class="navigatie-link">Nieuws</a></li>
             </ul>

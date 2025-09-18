@@ -126,7 +126,7 @@ if (isset($_POST['delete'])) {
         }
 
         .verwijderen-knop {
-            background-color: #000000ff;
+            background-color: #2c3e50;
             color: white;
         }
 
