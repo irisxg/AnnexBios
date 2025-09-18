@@ -160,6 +160,14 @@ if (isset($_POST['delete'])) {
             white-space: pre-wrap;
             overflow-y: auto;
         }
+
+        .beschrijving {
+    max-width: 500px;
+    overflow-wrap: break-word; /* Zorgt dat woorden worden afgebroken */
+    word-wrap: break-word;     /* Voor oudere browsers */
+    white-space: normal;       /* Zorgt dat tekst automatisch naar volgende regel gaat */
+}
+
     </style>
 </head>
 
