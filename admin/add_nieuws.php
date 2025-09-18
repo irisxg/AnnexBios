@@ -18,7 +18,8 @@ if ($conn->connect_error) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $titel = $_POST["titel"];
     $publiceerdatum = $_POST["publiceerdatum"];
-    $beschrijving = $_POST["beschrijving"];
+    $beschrijving = ($_POST["beschrijving"]);
+
 
     // Afbeelding uploaden en bestandsnaam opslaan
     $target_dir = "assets/img/";
@@ -68,7 +69,7 @@ $conn->close();
                 <input type="date" name="publiceerdatum" id="publiceerdatum" required>
 
                 <label for="beschrijving">Beschrijving:</label>
-                <textarea name="beschrijving" id="beschrijving" required></textarea>
+                <textarea name="beschrijving" id="beschrijving" required wrap="soft" maxlength="500"></textarea>
 
                 <input type="submit" value="Nieuwsbericht toevoegen">
 

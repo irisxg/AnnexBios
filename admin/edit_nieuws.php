@@ -32,7 +32,8 @@ $nieuws = $result->fetch_assoc();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $titel = $_POST["titel"];
     $publiceerdatum = $_POST["publiceerdatum"];
-    $beschrijving = $_POST["beschrijving"];
+    $beschrijving = ($_POST["beschrijving"]);
+
     $afbeelding = $_POST["afbeelding"]; // Optioneel: kan ook via upload
 
     $update_sql = "UPDATE nieuws 
@@ -86,7 +87,7 @@ $conn->close();
 
                 <div class="form-group">
                     <label for="beschrijving">Beschrijving:</label>
-                    <textarea id="beschrijving" name="beschrijving" required><?php echo htmlspecialchars($nieuws['beschrijving']); ?></textarea>
+                    <textarea id="beschrijving" name="beschrijving" required wrap="soft"><?php echo htmlspecialchars($nieuws['beschrijving']); ?></textarea>
                 </div>
 
                 <div class="form-group">
