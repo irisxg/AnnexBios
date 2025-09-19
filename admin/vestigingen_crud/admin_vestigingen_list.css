@@ -1,0 +1,170 @@
+:root {
+    --list-pink: #FF8A9D;
+    --list-dark-gray: #2c3e50;
+    --list-light-gray: #ecf0f1;
+    --list-white: #ffffff;
+    --list-red: #b80000ff;
+}
+
+.admin-list-body {
+    font-family: Arial, sans-serif;
+    background-color: var(--list-light-gray);
+    color: var(--list-dark-gray);
+    margin: 0;
+    padding: 20px;
+}
+
+.admin-list-title {
+    text-align: center;
+    color: var(--list-pink);
+    font-size: 2em;
+    margin-bottom: 30px;
+}
+
+.admin-list-container {
+    max-width: 800px;
+    margin: auto;
+}
+
+.admin-list-card {
+    background-color: var(--list-white);
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.admin-list-card .admin-list-name {
+    font-weight: bold;
+    color: var(--list-dark-gray);
+}
+
+.admin-list-card .admin-list-api {
+    font-family: monospace;
+    font-size: 0.9em;
+    color: #555;
+}
+
+/* Buttons */
+.admin-list-btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    color: var(--list-white);
+    background-color: var(--list-pink);
+    transition: background-color 0.3s;
+    text-decoration: none;
+}
+
+.admin-list-btn:hover {
+    background-color: #ff6b84;
+}
+
+.admin-list-btn-edit {
+    margin-left: 280px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    color: var(--list-white);
+    background-color: var(--list-pink);
+    transition: background-color 0.3s;
+    text-decoration: none;
+}
+
+.admin-list-btn-edit:hover {
+    background-color: #ff6b84;
+}
+
+.admin-list-btn-delete {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    color: var(--list-white);
+    background-color: var(--list-dark-gray);
+    transition: background-color 0.3s;
+    text-decoration: none;
+}
+
+.admin-list-btn-delete:hover {
+    background-color: var(--list-red);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal-content {
+    background: var(--list-light-gray);
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  }
+  
+  .modal h2 {
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+  }
+  
+  .modal-actions {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1.5rem;
+  }
+  
+  .btn-cancel, .btn-delete {
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    text-decoration: none;
+  }
+ 
+  .btn-cancel {
+    background-color: var(--list-pink);
+    color: var(--list-white);
+  }
+  
+  .btn-cancel:hover {
+    background: #ff6b84;
+  }
+  
+  .btn-delete {
+    background-color: var(--list-dark-gray);
+    color: var(--list-white);
+  }
+  
+  .btn-delete:hover {
+    background-color: var(--list-red);
+  }
+  
+
+/* Responsive */
+@media (max-width: 600px) {
+    .admin-list-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .admin-list-card a.admin-list-btn {
+        align-self: flex-end;
+    }
+}
