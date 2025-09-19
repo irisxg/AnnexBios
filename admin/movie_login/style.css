@@ -1,0 +1,19 @@
+
+.login-button{
+
+    background-color: #FF8A9D;
+    border-radius: 5px;
+    width: 100px;
+    height: 40px;
+    border-color: #FF8A9D;
+}
+
+.login-button:hover{
+
+    background-color: #ff637d;
+}
+
+.card-header{
+   background-color:  #ff8a9d3d;
+}
+

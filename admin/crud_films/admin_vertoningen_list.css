@@ -1,0 +1,179 @@
+/* 🎨 Kleuren */
+:root {
+    --vertoning-pink: #FF8A9D;
+    --vertoning-dark-gray: #2c3e50;
+    --vertoning-light-gray: #ecf0f1;
+    --vertoning-white: #ffffff;
+    --vertoning-pink-hover: #ff6b84;
+    --vertoning-red: #b80000ff;
+}
+
+/* 🖥️ Body & titel */
+.admin-vertoningen-body {
+    font-family: Arial, sans-serif;
+    background-color: var(--vertoning-light-gray);
+    color: var(--vertoning-dark-gray);
+    margin: 0;
+    padding: 20px;
+}
+
+.admin-vertoningen-title {
+    text-align: center;
+    color: var(--vertoning-pink);
+    font-size: 2em;
+    margin-bottom: 30px;
+}
+
+/* 📦 Container */
+.admin-vertoningen-container {
+    max-width: 1000px;
+    margin: auto;
+}
+
+/* ➕ Nieuwe vertoning knop */
+.admin-vertoningen-btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    color: var(--vertoning-white);
+    background-color: var(--vertoning-pink);
+    transition: background-color 0.3s;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.admin-vertoningen-btn:hover {
+    background-color: var(--vertoning-pink-hover);
+}
+
+/* 📋 Tabel styling */
+.admin-vertoningen-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--vertoning-white);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.admin-vertoningen-table th,
+.admin-vertoningen-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.admin-vertoningen-table th {
+    background-color: var(--vertoning-pink);
+    color: var(--vertoning-white);
+}
+
+.admin-vertoningen-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* ✏️ Bewerken knop */
+.vertoning-btn-edit {
+    background: var(--vertoning-pink);
+    color: var(--vertoning-white);
+    padding: 6px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    margin-right: 8px;
+    display: inline-block;
+    font-weight: bold;
+}
+  
+.vertoning-btn-edit:hover {
+    background: var(--vertoning-pink-hover);
+}
+
+/* 🗑️ Verwijderen knop */
+.vertoning-btn-delete {
+    background: var(--vertoning-dark-gray);
+    color: var(--vertoning-white);
+    padding: 6px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: bold;
+}
+  
+.vertoning-btn-delete:hover {
+    background: var(--vertoning-red);
+}
+
+/* 🔲 Modal overlay */
+.vertoning-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+  
+.vertoning-modal-content {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+  
+.vertoning-modal-content h2 {
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+}
+  
+.vertoning-modal-actions {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1.5rem;
+}
+
+.vertoning-btn-cancel {
+    background: var(--vertoning-pink);
+    color: var(--vertoning-white);
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.vertoning-btn-cancel:hover {
+    background: var(--vertoning-pink-hover);
+}
+
+.vertoning-modal .vertoning-btn-delete {
+    background: var(--vertoning-dark-gray);
+    color: var(--vertoning-white);
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.vertoning-modal .vertoning-btn-delete:hover {
+    background: var(--vertoning-red);
+}
+
+/* 📱 Responsive */
+@media (max-width: 600px) {
+    .admin-vertoningen-table th,
+    .admin-vertoningen-table td {
+        padding: 8px;
+    }
+}
