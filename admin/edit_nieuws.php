@@ -5,7 +5,7 @@ session_start();
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "annexbios"; // Database voor bioscoop
+$dbname = "annexbios";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
@@ -17,7 +17,7 @@ if (!isset($_GET['id']) || empty($_GET['id'])) {
     echo "Geen nieuws ID opgegeven.";
     exit;
 }
-$id = intval($_GET['id']); // Veilig maken van ID
+$id = intval($_GET['id']);
 
 // Nieuwsbericht ophalen
 $sql = "SELECT * FROM nieuws WHERE id = $id";
@@ -28,20 +28,42 @@ if (!$result || $result->num_rows == 0) {
 }
 $nieuws = $result->fetch_assoc();
 
-// Nieuwsbericht bijwerken als formulier is ingediend
+// Formulierverwerking
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $titel = $_POST["titel"];
     $publiceerdatum = $_POST["publiceerdatum"];
-    $beschrijving = ($_POST["beschrijving"]);
+    $beschrijving = $_POST["beschrijving"];
+    $afbeelding = $nieuws['afbeelding']; // standaard behouden
 
-    $afbeelding = $_POST["afbeelding"]; // Optioneel: kan ook via upload
+    // Verwijderen van afbeelding via formulier
+    if (isset($_POST['verwijder_afbeelding']) && $_POST['verwijder_afbeelding'] == '1') {
+        if (!empty($afbeelding) && file_exists("uploads/" . $afbeelding)) {
+            unlink("uploads/" . $afbeelding);
+        }
+        $afbeelding = '';
+    }
 
+    // Nieuwe afbeelding uploaden
+    if (isset($_FILES['afbeelding']) && $_FILES['afbeelding']['error'] == UPLOAD_ERR_OK) {
+        $uploadDir = 'uploads/';
+        $bestandsnaam = basename($_FILES['afbeelding']['name']);
+        $uploadPad = $uploadDir . $bestandsnaam;
+
+        if (move_uploaded_file($_FILES['afbeelding']['tmp_name'], $uploadPad)) {
+            // Oude afbeelding verwijderen
+            if (!empty($nieuws['afbeelding']) && file_exists($uploadDir . $nieuws['afbeelding'])) {
+                unlink($uploadDir . $nieuws['afbeelding']);
+            }
+            $afbeelding = $bestandsnaam;
+        }
+    }
+
+    // Update uitvoeren
     $update_sql = "UPDATE nieuws 
                    SET titel = '$titel', publiceerdatum = '$publiceerdatum', beschrijving = '$beschrijving', afbeelding = '$afbeelding' 
                    WHERE id = $id";
 
     if ($conn->query($update_sql) === TRUE) {
-        // Redirect naar detailpagina na succesvolle update
         header("Location: nieuwsdetail.php?id=$id");
         exit();
     } else {
@@ -56,18 +78,15 @@ $conn->close();
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Nieuwsbericht aanpassen</title>
     <link rel="stylesheet" href="assets/nieuws.css">
-   
 </head>
 
 <body>
     <div id="content">
         <?php include "includes/header.php"; ?>
         <main>
-
-            <form method="post" class="formulier">
+            <form method="post" enctype="multipart/form-data" class="formulier">
                 <h2>Nieuwsbericht aanpassen</h2><br><br>
 
                 <div class="form-group">
@@ -75,20 +94,55 @@ $conn->close();
                     <input type="text" id="titel" name="titel" value="<?php echo htmlspecialchars($nieuws['titel']); ?>" required>
                 </div>
 
+
+                <?php if (empty($nieuws['afbeelding'])): ?>
+                    <div class="form-group" id="upload-veld">
+                        <label for="afbeelding">Nieuwe afbeelding uploaden:</label>
+                        <input type="file" id="afbeelding" name="afbeelding">
+                    </div>
+                <?php endif; ?>
+
+                <?php if (!empty($nieuws['afbeelding'])): ?>
+                    <div class="afbeelding-container" id="afbeelding-container">
+                        <div class="afbeelding-header">
+                            <span>Huidige afbeelding</span>
+                            <button type="button" onclick="verwijderAfbeelding()">✖</button>
+                        </div>
+                        <img src="uploads/<?php echo htmlspecialchars($nieuws['afbeelding']); ?>" alt="Afbeelding" class="voorbeeld-afbeelding">
+                        <input type="hidden" name="verwijder_afbeelding" id="verwijder_afbeelding" value="0">
+                    </div>
+                <?php endif; ?> <br>
+
+
+
+                <script>
+                    function verwijderAfbeelding() {
+                        document.getElementById('verwijder_afbeelding').value = '1';
+                        const container = document.getElementById('afbeelding-container');
+                        if (container) container.remove();
+
+                        // Voeg uploadveld toe
+                        const uploadHTML = `
+                <div class="form-group" id="upload-veld">
+                    <label for="afbeelding">Nieuwe afbeelding uploaden:</label>
+                    <input type="file" id="afbeelding" name="afbeelding">
+                </div>
+            `; 
+                        const form = document.querySelector('.formulier');
+                        form.insertAdjacentHTML('beforeend', uploadHTML);
+                    }
+                </script>
+
                 <div class="form-group">
                     <label for="publiceerdatum">Publiceerdatum:</label>
                     <input type="date" id="publiceerdatum" name="publiceerdatum" value="<?php echo htmlspecialchars($nieuws['publiceerdatum']); ?>" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="afbeelding">Afbeeldingsnaam:</label>
-                    <input type="text" id="afbeelding" name="afbeelding" value="<?php echo htmlspecialchars($nieuws['afbeelding']); ?>">
+                    <label for="beschrijving">Beschrijving:</label>
+                    <textarea id="beschrijving" name="beschrijving" required><?php echo htmlspecialchars($nieuws['beschrijving']); ?></textarea>
                 </div>
 
-                <div class="form-group">
-                    <label for="beschrijving">Beschrijving:</label>
-                    <textarea id="beschrijving" name="beschrijving" required wrap="soft"><?php echo htmlspecialchars($nieuws['beschrijving']); ?></textarea>
-                </div>
 
                 <div class="form-group">
                     <input type="submit" value="Opslaan">
@@ -96,10 +150,10 @@ $conn->close();
 
                 <a href="nieuwsdetail.php?id=<?php echo $id; ?>" class="terug-knop">Terug naar nieuwsbericht</a>
             </form>
-
         </main>
         <?php include "includes/footer.php"; ?>
     </div>
+
 </body>
 
 </html>
