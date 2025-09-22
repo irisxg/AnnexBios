@@ -354,3 +354,34 @@ textarea {
     word-wrap: break-word;     /* Voor oudere browsers */
     white-space: normal;       /* Zorgt dat tekst automatisch naar volgende regel gaat */
 }
+
+.tox .tox-edit-area__iframe {
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+}
+
+
+.beschrijving-tekst {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+.beschrijving-tekst ol,
+.beschrijving-tekst ul {
+    padding-left: 1.5em;
+    margin-bottom: 1em;
+}
+
+.beschrijving-tekst strong {
+    font-weight: bold;
+}
+
+.beschrijving-tekst em {
+    font-style: italic;
+}
+
+.beschrijving-tekst span {
+    text-decoration: underline;
+}
+
