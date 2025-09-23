@@ -16,6 +16,7 @@ main {
   margin: auto;
   position: relative;
   max-width: 1200px;
+  background-image: url("./img/achtergrondbios.jpg");
 }
 
 .hoofd-header {
@@ -368,3 +369,53 @@ main {
     }
   }
 }
+
+/*hmburger menu header*/
+
+.hamburger-knop {
+  display: none;
+  font-size: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+
+    .header-container {
+    flex-direction: row; /* was column */
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+  }
+  
+  .hamburger-knop {
+    display: block;
+    margin-left: auto;
+  }
+
+  .hoofd-navigatie {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: #fff;
+    padding: 20px;
+  }
+
+  .hoofd-navigatie.open {
+    display: flex;
+  }
+
+  .navigatie-lijst {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .navigatie-link {
+    font-size: 18px;
+    color: #333;
+  }
+}
+
