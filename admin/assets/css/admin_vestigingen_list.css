@@ -32,7 +32,7 @@
     background-color: var(--list-white);
     padding: 15px 20px;
     border-radius: 10px;
-    margin-bottom: 15px;
+    margin-bottom: 23px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -51,7 +51,6 @@
     color: #555;
 }
 
-/* Buttons */
 .admin-list-btn {
     padding: 8px 15px;
     border: none;

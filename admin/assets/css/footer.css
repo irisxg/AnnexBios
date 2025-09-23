@@ -10,14 +10,12 @@ html, body {
 }
 
 footer {
-  padding-top: 30px;
   font-family: Arial, sans-serif;
   color: #fff;
 }
 
-/* Top section */
 .footer-top {
-  background: #666; /* grijs */
+  background: #666;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -25,7 +23,7 @@ footer {
   position: relative;
 }
 
-/* Left info */
+
 .footer-left {
   flex: 1;
 }
@@ -56,7 +54,6 @@ footer {
   color: #fff;
 }
 
-/* Navigation */
 .footer-nav {
   flex: 0.5;
   margin-left: 3rem;
@@ -86,7 +83,6 @@ footer {
 }
 
 
-/* Right film roll */
 .footer-right img {
     position: absolute;
     top: 0;
@@ -96,7 +92,6 @@ footer {
   
 }
 
-/* Bottom section */
 .footer-bottom {
   background: #000;
   text-align: center;

@@ -41,22 +41,12 @@ if ($vertoning) {
         }
     </script>
 </head>
-<<<<<<< Updated upstream
-<body class="vertoning-body">
-<a href="../crud_films/list_vertoningen.php" class="back-btn">← Terug</a>
-<h1 class="vertoning-title"><?php echo $vertoning ? "Vertoning bewerken" : "Nieuwe vertoning"; ?></h1>
-<div class="vertoning-container" style="position: relative;">
-</div>
-<form action="save_vertoning.php" method="post" class="vertoning-form">
-    <input type="hidden" name="id" value="<?php echo $vertoning['id'] ?? ''; ?>">
-=======
 <body class="avf-body">
     <h1 class="avf-title"><?php echo $vertoning ? "Vertoning bewerken" : "Nieuwe vertoning"; ?></h1>
     <a href="../crud_films/list_vertoningen.php" class="back-btn">← Terug</a>
 
     <form action="save_vertoning.php" method="post" class="avf-form">
         <input type="hidden" name="id" value="<?php echo $vertoning['id'] ?? ''; ?>">
->>>>>>> Stashed changes
 
         <label class="avf-label">Vestiging:</label>
         <select name="vestiging_id" onchange="loadZalen(this.value)" class="avf-select" required>
@@ -103,8 +93,5 @@ if ($vertoning) {
         <button type="submit" class="avf-btn">Opslaan</button>
     </form>
 </body>
-<<<<<<< Updated upstream
 <?php include '../includes/footer.php';?> 
-=======
->>>>>>> Stashed changes
 </html>
