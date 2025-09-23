@@ -1,13 +1,3 @@
-<<<<<<< Updated upstream
-<head>
-<link rel="stylesheet" href="../assets/css/annexbios.css"/>
-<link rel="stylesheet" href="../assets/css/admin_vertoning_form.css"/>
-<link rel="stylesheet" href="../assets/css/admin_vertoningen_list.css"/>
-<link rel="stylesheet" href="../assets/css/admin.css"/>
-<link rel="stylesheet" href="../assets/css/footer.css"/>
-<link rel="stylesheet" href="../assets/css/admin_vestiging_form.css"/>
-<link rel="stylesheet" href="../assets/css/admin_vestigingen_list.css"/>
-=======
 <link rel="stylesheet" href="../assets/css/annexbios.css">
 <link rel="stylesheet" href="../assets/css/admin_vertoning_form.css">
 <link rel="stylesheet" href="../assets/css/admin_vertoningen_list.css">
@@ -17,7 +7,6 @@
 <link rel="stylesheet" href="../assets/css/annexbios.css">
 <link rel="stylesheet" href="../assets/css/nieuws.css">
 <link rel="stylesheet" href="../assets/css/footer.css">
->>>>>>> Stashed changes
 
 </head>
 <header class="hoofd-header">
@@ -32,11 +21,7 @@
 
         <nav class="hoofd-navigatie">
             <ul class="navigatie-lijst">
-<<<<<<< Updated upstream
-                <li><a href="../overzichtpagina/admin.php" class="navigatie-link">Home</a></li>
-=======
                 <li><a href="../main_page/admin.php" class="navigatie-link">Home</a></li>
->>>>>>> Stashed changes
                 <li><a href="../vestigingen_crud/list_vestigingen.php" class="navigatie-link">Vestigingen</a></li>
                 <li><a href="../crud_films/list_vertoningen.php" class="navigatie-link">Films</a></li>
                 <li><a href="../news/nieuws.php" class="navigatie-link">Nieuws</a></li>
