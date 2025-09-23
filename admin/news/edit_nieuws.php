@@ -74,7 +74,7 @@ $conn->close();
 
 <body>
     <div id="content">
-        <?php include "includes/header.php"; ?>
+        <?php include "../includes/header.php"; ?>
         <main>
             <form method="post" enctype="multipart/form-data" class="formulier">
                 <h2>Nieuwsbericht aanpassen</h2><br><br>
@@ -142,7 +142,7 @@ $conn->close();
                 <a href="nieuwsdetail.php?id=<?php echo $id; ?>" class="terug-knop">Terug naar nieuwsbericht</a>
             </form>
         </main>
-        <?php include "includes/footer.php"; ?>
+        <?php include "../includes/footer.php"; ?>
     </div>
 
 </body>

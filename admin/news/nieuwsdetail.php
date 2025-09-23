@@ -153,7 +153,7 @@ if (isset($_POST['delete'])) {
     </style>
 </head>
 <body>
-    <?php include './includes/header.php'; ?>
+    <?php include '../includes/header.php'; ?>
 
     <main class="nieuwsdetail">
         <div class="nieuwsdetail-container">
@@ -181,7 +181,7 @@ if (isset($_POST['delete'])) {
         </div>
     </main>
 
-    <?php include './includes/footer.php'; ?>
+    <?php include '../includes/footer.php'; ?>
 </body>
 </html>
 
