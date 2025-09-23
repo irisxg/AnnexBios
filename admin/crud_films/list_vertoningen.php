@@ -1,5 +1,6 @@
 <?php
 require '../database.sql/db.php';
+include '../includes/header.php';
 
 $stmt = $pdo->query("
     SELECT v.id, v.starttijd, v.prijs,
@@ -83,4 +84,5 @@ function closeVertoningDeleteModal() {
 </script>
 
 </body>
+<?php include '../includes/footer.php';?> 
 </html>

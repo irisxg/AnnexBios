@@ -1,0 +1,111 @@
+:root {
+    --vertoning-pink: #FF8A9D;
+    --vertoning-dark-gray: #2c3e50;
+    --vertoning-light-gray: #ecf0f1;
+    --vertoning-white: #ffffff;
+    --vertoning-pink-hover: #ff6b84;
+}
+
+body.vertoning-body {
+    font-family: Arial, sans-serif;
+    background-color: var(--vertoning-light-gray);
+    color: var(--vertoning-dark-gray);
+    margin: 0;
+}
+
+h1.vertoning-title {
+    text-align: center;
+    color: var(--vertoning-pink);
+    font-size: 2em;
+    margin-bottom: 40px;
+    margin-top: 80px;
+}
+
+form.vertoning-form {
+    background-color: var(--vertoning-white);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 700px;
+    margin: auto;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+form.vertoning-form label {
+    display: block;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+form.vertoning-form input,
+form.vertoning-form select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+form.vertoning-form button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--vertoning-dark-gray);
+    color: var(--vertoning-white);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form.vertoning-form button:hover {
+    background-color: var(--vertoning-pink);
+}
+
+a.vertoning-btn-terug {
+    margin-left: 450px;
+    display: inline-block;
+    margin-bottom: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: var(--vertoning-pink);
+    color: var(--vertoning-white);
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+a.vertoning-btn-terug:hover {
+    background-color: var(--vertoning-pink-hover);
+}
+
+.admin-vertoningen-back-btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    color: var(--vertoning-white);
+    background-color: var(--vertoning-pink);
+    transition: background-color 0.3s;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.admin-vertoningen-back-btn:hover {
+    background-color: var(--vertoning-pink-hover);
+}
+
+@media (max-width: 600px) {
+    h1.vertoning-title {
+        font-size: 1.5em;
+        margin-bottom: 20px;
+    }
+
+    a.vertoning-btn-terug {
+        padding: 0.3rem 0.7rem;
+        font-size: 0.9rem;
+        top: 0.5rem;
+        left: 0.5rem;
+    }
+}

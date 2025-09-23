@@ -1,8 +1,5 @@
 <?php
-
-//index.php
-
-require 'vendor/autoload.php';
+require './vendor/autoload.php';
 
 use Firebase\JWT\JWT;
 
@@ -84,7 +81,7 @@ if(isset($_POST["login"]))
 
     				?>
 		    		<div class="card">
-		    			<div class="card-header" style="#ff8a9d3d">Login</div>
+					<div class="card-header" style="background-color: #ff8a9d3d;">Login</div>
 		    			<div class="card-body">
 		    				<form method="post">
 		    					<div class="mb-3">

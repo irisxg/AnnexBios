@@ -11,14 +11,15 @@
     background-color: var(--list-light-gray);
     color: var(--list-dark-gray);
     margin: 0;
-    padding: 20px;
+    padding: 0px;
 }
 
 .admin-list-title {
     text-align: center;
     color: var(--list-pink);
     font-size: 2em;
-    margin-bottom: 30px;
+    margin-top: 60px;
+    margin-bottom: 40px;
 }
 
 .admin-list-container {
@@ -35,6 +36,7 @@
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    margin-top: 5px;
 }
 
 .admin-list-card .admin-list-name {
@@ -155,7 +157,7 @@
   .btn-delete:hover {
     background-color: var(--list-red);
   }
-  
+
 
 /* Responsive */
 @media (max-width: 600px) {

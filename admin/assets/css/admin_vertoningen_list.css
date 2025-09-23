@@ -1,4 +1,8 @@
-/* 🎨 Kleuren */
+html, body {
+    margin: 0;
+    padding: 0;
+  }
+  
 :root {
     --vertoning-pink: #FF8A9D;
     --vertoning-dark-gray: #2c3e50;
@@ -8,29 +12,28 @@
     --vertoning-red: #b80000ff;
 }
 
-/* 🖥️ Body & titel */
 .admin-vertoningen-body {
     font-family: Arial, sans-serif;
     background-color: var(--vertoning-light-gray);
     color: var(--vertoning-dark-gray);
     margin: 0;
-    padding: 20px;
 }
 
 .admin-vertoningen-title {
+    margin-top: 30px;
     text-align: center;
     color: var(--vertoning-pink);
     font-size: 2em;
+    margin-top: 40px;
     margin-bottom: 30px;
 }
 
-/* 📦 Container */
 .admin-vertoningen-container {
     max-width: 1000px;
     margin: auto;
+    padding-bottom: 20px;
 }
 
-/* ➕ Nieuwe vertoning knop */
 .admin-vertoningen-btn {
     padding: 8px 15px;
     border: none;
@@ -49,7 +52,6 @@
     background-color: var(--vertoning-pink-hover);
 }
 
-/* 📋 Tabel styling */
 .admin-vertoningen-table {
     width: 100%;
     border-collapse: collapse;
@@ -75,7 +77,6 @@
     background-color: #f1f1f1;
 }
 
-/* ✏️ Bewerken knop */
 .vertoning-btn-edit {
     background: var(--vertoning-pink);
     color: var(--vertoning-white);
@@ -91,7 +92,6 @@
     background: var(--vertoning-pink-hover);
 }
 
-/* 🗑️ Verwijderen knop */
 .vertoning-btn-delete {
     background: var(--vertoning-dark-gray);
     color: var(--vertoning-white);
@@ -106,7 +106,6 @@
     background: var(--vertoning-red);
 }
 
-/* 🔲 Modal overlay */
 .vertoning-modal {
     display: none;
     position: fixed;

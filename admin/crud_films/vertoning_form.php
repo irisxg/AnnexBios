@@ -1,5 +1,6 @@
 <?php
 require '../database.sql/db.php';
+include '../includes/header.php';
 
 $vertoning = null;
 $vestigingen = $pdo->query("SELECT * FROM vestigingen ORDER BY name")->fetchAll();
@@ -11,7 +12,7 @@ if (isset($_GET['id'])) {
     $vertoning = $stmt->fetch();
 }
 
-// Zalen ophalen voor de juiste vestiging (bij edit)
+
 $zalen = [];
 if ($vertoning) {
     $stmt = $pdo->prepare("SELECT * FROM zalen WHERE vestiging_id = ?");
@@ -40,11 +41,12 @@ if ($vertoning) {
         }
     </script>
 </head>
-<body>
-<h1><?php echo $vertoning ? "Vertoning bewerken" : "Nieuwe vertoning"; ?></h1>
-<a href="list_vertoningen.php" class="btn-terug-vestiging-form">← Terug naar overzicht</a>
-
-<form action="save_vertoning.php" method="post">
+<body class="vertoning-body">
+<a href="../crud_films/list_vertoningen.php" class="back-btn">← Terug</a>
+<h1 class="vertoning-title"><?php echo $vertoning ? "Vertoning bewerken" : "Nieuwe vertoning"; ?></h1>
+<div class="vertoning-container" style="position: relative;">
+</div>
+<form action="save_vertoning.php" method="post" class="vertoning-form">
     <input type="hidden" name="id" value="<?php echo $vertoning['id'] ?? ''; ?>">
 
     <label>Vestiging:</label>
@@ -92,4 +94,5 @@ if ($vertoning) {
     <button type="submit">Opslaan</button>
 </form>
 </body>
+<?php include '../includes/footer.php';?> 
 </html>
