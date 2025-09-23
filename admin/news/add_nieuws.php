@@ -50,7 +50,7 @@ $conn->close();
 </head>
 <body>
     <div id="content">
-        <?php include "includes/header.php"; ?>
+        <?php include "../includes/header.php"; ?>
 
         <main>
             <form action="" method="post" enctype="multipart/form-data" class="formulier">

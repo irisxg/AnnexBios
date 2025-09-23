@@ -25,7 +25,7 @@ $conn->close();
     <meta name="theme-color" content="#ffffffff">
 </head>
 <body>
-    <?php include './includes/header.php'; ?>
+    <?php include '../includes/header.php'; ?>
 
     <div id="content">
         <main class="gloedpagina">
@@ -39,7 +39,7 @@ $conn->close();
                         <h2><?php echo htmlspecialchars($nieuws['titel']); ?></h2>
                         <div class="nieuws-content">
                             <div class="links">
-                                <img src="assets/img/<?php echo htmlspecialchars($nieuws['afbeelding']); ?>" alt="<?php echo htmlspecialchars($nieuws['titel']); ?>">
+                                <img src="../assets/img/<?php echo htmlspecialchars($nieuws['afbeelding']); ?>" alt="<?php echo htmlspecialchars($nieuws['titel']); ?>">
                                 <p class="datum">Geproduceerd op: <?php echo date("d-m-Y", strtotime($nieuws['publiceerdatum'])); ?></p>
                             </div>
                             <div class="beschrijving" style="max-width: 600px; width: 100%;">
@@ -54,6 +54,6 @@ $conn->close();
         </main>
     </div>
 
-    <?php include './includes/footer.php'; ?>
+    <?php include '../includes/footer.php'; ?>
 </body>
 </html>
