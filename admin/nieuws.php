@@ -27,6 +27,7 @@ $conn->close();
 
 <!doctype html>
 <html lang="nl">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -34,6 +35,7 @@ $conn->close();
     <link rel="stylesheet" href="assets/nieuws.css">
     <meta name="theme-color" content="#ffffffff">
 </head>
+
 <body>
     <?php include './includes/header.php'; ?>
 
@@ -49,7 +51,11 @@ $conn->close();
                         <h2><?php echo htmlspecialchars($nieuws['titel']); ?></h2>
                         <div class="nieuws-content">
                             <div class="links">
-                                <img src="assets/img/<?php echo htmlspecialchars($nieuws['afbeelding']); ?>" alt="<?php echo htmlspecialchars($nieuws['titel']); ?>">
+                                <div class="afbeelding-wrapper">
+                                    <img class="nieuws-afbeelding" src="assets/img/<?php echo htmlspecialchars($nieuws['afbeelding']); ?>" alt="<?php echo htmlspecialchars($nieuws['titel']); ?>">
+                                </div>
+
+
                                 <p class="datum">Geproduceerd op: <?php echo date("d-m-Y", strtotime($nieuws['publiceerdatum'])); ?></p>
                             </div>
                             <div class="beschrijving" style="max-width: 600px; width: 100%;">
@@ -66,4 +72,5 @@ $conn->close();
 
     <?php include './includes/footer.php'; ?>
 </body>
+
 </html>
