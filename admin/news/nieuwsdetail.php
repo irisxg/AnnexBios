@@ -1,15 +1,6 @@
 <?php
 session_start();
-
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "annexbios";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-    die("Verbinding mislukt: " . $conn->connect_error);
-}
+require '../database.sql/db.php';
 
 if (!isset($_GET['id']) || empty($_GET['id'])) {
     echo "Geen nieuws ID opgegeven.";

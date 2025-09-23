@@ -12,6 +12,7 @@ body {
 }
 
 .admin-vestiging-body {
+    position: relative;
     font-family: Arial, sans-serif;
     background-color: var(--admin-light-gray);
     color: var(--admin-dark-gray);
@@ -49,6 +50,7 @@ body {
     width: 100%;
     padding: 8px;
     margin-top: 5px;
+    margin-bottom: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
     box-sizing: border-box;
@@ -63,7 +65,7 @@ body {
 }
 
 .admin-vestiging-repeater {
-    margin-bottom: 20px;
+    margin-bottom: 0px;
 }
 
 .admin-vestiging-btn {
@@ -86,7 +88,11 @@ body {
 .admin-vestiging-btn-repeater {
     display: inline-block;
     padding: 10px 20px;
+<<<<<<< Updated upstream
     margin-top: 10px;
+=======
+    margin-top: 5px;
+>>>>>>> Stashed changes
     margin-bottom: 30px;
     border: none;
     border-radius: 5px;
@@ -111,21 +117,21 @@ body {
     flex: 1;
 }
 
-
-.btn-terug {
-    margin-left: 400px;
-    display: inline-block;
-    margin-bottom: 1rem;
-    padding: 0.5rem 1rem;
+.back-btn {
     background-color: var(--admin-red);
     color: var(--admin-white);
-    text-decoration: none;
+    padding: 8px 16px;
     border-radius: 8px;
+    text-decoration: none;
     font-weight: bold;
+    transition: background-color 0.3s ease;
+    position: absolute;
+    top: 215px;
+    left: 40px;
 }
 
-.btn-terug:hover {
-    background-color: var(--admin-pink-hover);
+.back-btn:hover {
+    background-color: var(--admin-dark-gray);
 }
 
 .back-btn {

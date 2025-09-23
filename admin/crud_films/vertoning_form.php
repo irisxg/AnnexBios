@@ -41,6 +41,7 @@ if ($vertoning) {
         }
     </script>
 </head>
+<<<<<<< Updated upstream
 <body class="vertoning-body">
 <a href="../crud_films/list_vertoningen.php" class="back-btn">← Terug</a>
 <h1 class="vertoning-title"><?php echo $vertoning ? "Vertoning bewerken" : "Nieuwe vertoning"; ?></h1>
@@ -48,51 +49,62 @@ if ($vertoning) {
 </div>
 <form action="save_vertoning.php" method="post" class="vertoning-form">
     <input type="hidden" name="id" value="<?php echo $vertoning['id'] ?? ''; ?>">
+=======
+<body class="avf-body">
+    <h1 class="avf-title"><?php echo $vertoning ? "Vertoning bewerken" : "Nieuwe vertoning"; ?></h1>
+    <a href="../crud_films/list_vertoningen.php" class="back-btn">← Terug</a>
 
-    <label>Vestiging:</label>
-    <select name="vestiging_id" onchange="loadZalen(this.value)" required>
-        <option value="">-- Kies vestiging --</option>
-        <?php foreach ($vestigingen as $v): ?>
-            <option value="<?php echo $v['id']; ?>" <?php echo ($vertoning && $vertoning['vestiging_id']==$v['id'])?'selected':''; ?>>
-                <?php echo htmlspecialchars($v['name']); ?>
-            </option>
-        <?php endforeach; ?>
-    </select>
-    <br>
+    <form action="save_vertoning.php" method="post" class="avf-form">
+        <input type="hidden" name="id" value="<?php echo $vertoning['id'] ?? ''; ?>">
+>>>>>>> Stashed changes
 
-    <label>Zaal:</label>
-    <select name="zaal_id" id="zaalSelect" required>
-        <?php foreach ($zalen as $z): ?>
-            <option value="<?php echo $z['id']; ?>" <?php echo ($vertoning && $vertoning['zaal_id']==$z['id'])?'selected':''; ?>>
-                <?php echo htmlspecialchars($z['name']); ?>
-            </option>
-        <?php endforeach; ?>
-    </select>
-    <br>
+        <label class="avf-label">Vestiging:</label>
+        <select name="vestiging_id" onchange="loadZalen(this.value)" class="avf-select" required>
+            <option value="">-- Kies vestiging --</option>
+            <?php foreach ($vestigingen as $v): ?>
+                <option value="<?php echo $v['id']; ?>" <?php echo ($vertoning && $vertoning['vestiging_id']==$v['id'])?'selected':''; ?>>
+                    <?php echo htmlspecialchars($v['name']); ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+        <br>
 
-    <label>Film:</label>
-    <select name="movie_id" required>
-        <option value="">-- Kies film --</option>
-        <?php foreach ($films as $f): ?>
-            <option value="<?php echo $f['id']; ?>" <?php echo ($vertoning && $vertoning['movie_id']==$f['id'])?'selected':''; ?>>
-                <?php echo htmlspecialchars($f['title']); ?>
-            </option>
-        <?php endforeach; ?>
-    </select>
-    <br>
+        <label class="avf-label">Zaal:</label>
+        <select name="zaal_id" id="zaalSelect" class="avf-select" required>
+            <?php foreach ($zalen as $z): ?>
+                <option value="<?php echo $z['id']; ?>" <?php echo ($vertoning && $vertoning['zaal_id']==$z['id'])?'selected':''; ?>>
+                    <?php echo htmlspecialchars($z['name']); ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+        <br>
 
-    <label>Starttijd:</label>
-    <input type="datetime-local" name="start_time"
-           value="<?php echo $vertoning ? date('Y-m-d\TH:i', strtotime($vertoning['starttijd'])) : ''; ?>" required>
-    <br>
+        <label class="avf-label">Film:</label>
+        <select name="movie_id" class="avf-select" required>
+            <option value="">-- Kies film --</option>
+            <?php foreach ($films as $f): ?>
+                <option value="<?php echo $f['id']; ?>" <?php echo ($vertoning && $vertoning['movie_id']==$f['id'])?'selected':''; ?>>
+                    <?php echo htmlspecialchars($f['title']); ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+        <br>
 
-    <label>Prijs (€):</label>
-    <input type="number" name="price" step="0.01"
-           value="<?php echo $vertoning['prijs'] ?? ''; ?>" required>
-    <br><br>
+        <label class="avf-label">Starttijd:</label>
+        <input type="datetime-local" name="start_time" class="avf-input"
+               value="<?php echo $vertoning ? date('Y-m-d\TH:i', strtotime($vertoning['starttijd'])) : ''; ?>" required>
+        <br>
 
-    <button type="submit">Opslaan</button>
-</form>
+        <label class="avf-label">Prijs (€):</label>
+        <input type="number" name="price" step="0.01" class="avf-input"
+               value="<?php echo $vertoning['prijs'] ?? ''; ?>" required>
+        <br><br>
+
+        <button type="submit" class="avf-btn">Opslaan</button>
+    </form>
 </body>
+<<<<<<< Updated upstream
 <?php include '../includes/footer.php';?> 
+=======
+>>>>>>> Stashed changes
 </html>

@@ -1,8 +1,11 @@
+<<<<<<< Updated upstream
 html, body {
     margin: 0;
     padding: 0;
   }
   
+=======
+>>>>>>> Stashed changes
 :root {
     --vertoning-pink: #FF8A9D;
     --vertoning-dark-gray: #2c3e50;
@@ -17,6 +20,10 @@ html, body {
     background-color: var(--vertoning-light-gray);
     color: var(--vertoning-dark-gray);
     margin: 0;
+<<<<<<< Updated upstream
+=======
+    padding: 0px;
+>>>>>>> Stashed changes
 }
 
 .admin-vertoningen-title {
@@ -169,7 +176,6 @@ html, body {
     background: var(--vertoning-red);
 }
 
-/* 📱 Responsive */
 @media (max-width: 600px) {
     .admin-vertoningen-table th,
     .admin-vertoningen-table td {

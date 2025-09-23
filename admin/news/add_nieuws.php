@@ -1,17 +1,6 @@
 <?php
 session_start();
-
-// Verbinding maken met de database
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "annexbios";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-if ($conn->connect_error) {
-    die("Verbinding mislukt: " . $conn->connect_error);
-}
+require '../database.sql/db.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $titel = $_POST["titel"] ?? '';

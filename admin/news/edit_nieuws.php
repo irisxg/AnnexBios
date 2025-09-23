@@ -1,16 +1,6 @@
 <?php
 session_start();
-
-// Verbinding met de database
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "annexbios";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-    die("Verbinding mislukt: " . $conn->connect_error);
-}
+require '../database.sql/db.php';
 
 // Controleren of er een ID is meegegeven
 if (!isset($_GET['id']) || empty($_GET['id'])) {
