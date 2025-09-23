@@ -121,17 +121,18 @@ $conn->close();
                         const container = document.getElementById('afbeelding-container');
                         if (container) container.remove();
 
-                        // Voeg uploadveld toe
+                        // Voeg uploadveld toe vóór de publiceerdatum
                         const uploadHTML = `
-                <div class="form-group" id="upload-veld">
-                    <label for="afbeelding">Nieuwe afbeelding uploaden:</label>
-                    <input type="file" id="afbeelding" name="afbeelding">
-                </div>
-            `; 
-                        const form = document.querySelector('.formulier');
-                        form.insertAdjacentHTML('beforeend', uploadHTML);
+            <div class="form-group" id="upload-veld">
+                <label for="afbeelding">Nieuwe afbeelding uploaden:</label>
+                <input type="file" id="afbeelding" name="afbeelding">
+            </div>
+        `;
+                        const publiceerVeld = document.getElementById('publiceerdatum').closest('.form-group');
+                        publiceerVeld.insertAdjacentHTML('beforebegin', uploadHTML);
                     }
                 </script>
+
 
                 <div class="form-group">
                     <label for="publiceerdatum">Publiceerdatum:</label>
