@@ -1,12 +1,6 @@
-/* begin styling nieuws */
-
-main.gloedpagina {
-    background-color: #75757523;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+/* Algemene basis */
+* {
     box-sizing: border-box;
-    padding: 20px;
 }
 
 body {
@@ -21,36 +15,93 @@ a {
     color: white;
 }
 
-.nieuws-item {
-    margin: 20px auto;
-    padding: 20px;
-    max-width: 900px;
-    background-color: transparent;
-    margin-left: 200px;
-    /* Toegevoegd om afstand vanaf links te creëren */
+/* Header */
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #333;
+    color: white;
+    position: relative;
 }
 
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
 
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.main-nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 1.5em;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* Container voor de pagina */
+main.gloedpagina {
+    background-color: #75757523;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+}
+
+/* Individueel nieuwsitem */
+.nieuws-item {
+    width: 100%;
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: transparent;
+}
+
+/* Titel van nieuwsitem */
 .nieuws-item h2 {
     font-size: 1.5em;
     color: #333;
     margin-bottom: 15px;
 }
 
+/* Flex container voor afbeelding + tekst */
 .nieuws-content {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
+    gap: 20px;
     flex-wrap: wrap;
 }
 
+/* Linkerzijde: afbeelding + datum */
 .nieuws-content .links {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-right: 20px;
+    flex: 0 0 300px;
+    max-width: 300px;
 }
 
+.nieuws-afbeelding {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+}
 
 .nieuws-content .datum {
     font-size: 0.9em;
@@ -58,25 +109,51 @@ a {
     margin-top: 10px;
 }
 
+/* Rechterzijde: samenvatting */
 .nieuws-content .beschrijving {
     flex: 1;
-    font-size: 1em;
-    color: #000;
+    min-width: 200px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
-main h2 a {
+.beschrijving-tekst {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+.beschrijving-tekst ol,
+.beschrijving-tekst ul {
+    padding-left: 1.5em;
+    margin-bottom: 1em;
+}
+
+.beschrijving-tekst strong {
+    font-weight: bold;
+}
+
+.beschrijving-tekst em {
+    font-style: italic;
+}
+
+.beschrijving-tekst span {
+    text-decoration: underline;
+}
+
+/* Toevoegknop */
+main h2 a,
+.toevoeg-link {
     color: rgb(73, 73, 73);
     border-radius: 5px;
     display: inline-block;
     margin-bottom: 20px;
+    font-weight: bold;
+    text-decoration: none;
 }
 
 .toevoeg-link {
-    display: inline-block;
     text-indent: 80px;
-    color: rgb(73, 73, 73);
-    text-decoration: none;
-    font-weight: bold;
 }
 
 .toevoeg-link:hover {
@@ -84,59 +161,13 @@ main h2 a {
     cursor: pointer;
 }
 
-/* Responsive styling */
-@media (max-width: 768px) {
-    .nieuws-content {
-        flex-direction: column;
-    }
-
-    .nieuws-content .links {
-        margin-right: 0;
-        margin-bottom: 15px;
-        align-items: center;
-    }
-
-    .nieuws-content img {
-        max-width: 100%;
-    }
-
-    .toevoeg-link {
-        text-indent: 0;
-        text-align: center;
-        display: block;
-        margin-top: 10px;
-    }
-}
-
-@media (max-width: 480px) {
-    .nieuws-item {
-        padding: 15px;
-    }
-
-    .nieuws-item h2 {
-        font-size: 1.2em;
-    }
-
-    .nieuws-content .beschrijving {
-        font-size: 0.95em;
-    }
-
-    main.gloedpagina {
-        padding: 10px;
-    }
-}
-
-/* einde styling nieuws */
-
-
-/* begin css nieuws bewerkpagina */
-
+/* Nieuws toevoegen & bewerken */
 main {
     background-color: #75757523;
     display: flex;
     justify-content: center;
     padding: 40px 20px;
-    box-sizing: border-box;
+    width: 100%;
 }
 
 .formulier {
@@ -144,7 +175,6 @@ main {
     max-width: 700px;
     width: 100%;
     padding: 30px;
-    box-sizing: border-box;
     border-radius: 8px;
 }
 
@@ -154,7 +184,6 @@ main {
     margin-bottom: 20px;
 }
 
-/* Formuliergroepen */
 .form-group {
     margin-bottom: 20px;
     display: flex;
@@ -169,7 +198,9 @@ main {
 
 .form-group input[type="text"],
 .form-group input[type="date"],
+.form-group input[type="file"],
 .form-group textarea {
+    width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 6px;
@@ -183,7 +214,6 @@ main {
     min-height: 120px;
 }
 
-/* Opslaan knop */
 .form-group input[type="submit"] {
     background-color: #FF8A9D;
     color: white;
@@ -199,7 +229,6 @@ main {
     background-color: #ff6b84;
 }
 
-/* Terugknop */
 .terug-knop {
     display: inline-block;
     margin-top: 20px;
@@ -216,7 +245,123 @@ main {
     background-color: #555;
 }
 
-/* Responsive */
+/* Afbeelding bewerkcomponent */
+.afbeelding-container {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #fff;
+    width: 100%;
+}
+
+.afbeelding-header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #f5f5f5;
+    padding: 5px 10px;
+    font-weight: bold;
+}
+
+.voorbeeld-afbeelding {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+    border-radius: 6px;
+}
+
+button {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.afbeelding-wrapper {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.nieuws-afbeelding {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* TinyMCE editor */
+.tox .tox-edit-area__iframe {
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+}
+
+/* Footer */
+.site-footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+}
+
+/* Responsive gedrag */
+@media (max-width: 768px) {
+    .nieuws-content {
+        flex-direction: column;
+    }
+
+    .nieuws-content .links,
+    .nieuws-content .beschrijving {
+        max-width: 100%;
+        flex: 1 1 100%;
+    }
+
+    .nieuws-item {
+        padding: 15px;
+    }
+
+    .nieuws-item h2 {
+        font-size: 1.2em;
+    }
+
+    .toevoeg-link {
+        text-indent: 0;
+        text-align: center;
+        display: block;
+        margin-top: 10px;
+    }
+
+    main.gloedpagina {
+        padding: 10px;
+    }
+
+    .main-nav {
+        display: none;
+        flex-direction: column;
+        background-color: #444;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        padding: 10px;
+        border-radius: 6px;
+        z-index: 1000;
+    }
+
+    .main-nav.active {
+        display: flex;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
+
 @media (max-width: 600px) {
     .formulier {
         padding: 20px;
@@ -229,17 +374,14 @@ main {
     }
 }
 
-/* einde css nieuws bewerkpagina */
 
-/* begin css nieuws toevoegen pagina */
-
-
-main {
+/* Nieuws toevoegen pagina */
+main.toevoegpagina {
     background-color: #75757523;
     display: flex;
     justify-content: center;
     padding: 40px 20px;
-    box-sizing: border-box;
+    width: 100%;
 }
 
 .formulier {
@@ -247,7 +389,6 @@ main {
     max-width: 700px;
     width: 100%;
     padding: 30px;
-    box-sizing: border-box;
     border-radius: 8px;
 }
 
@@ -257,7 +398,6 @@ main {
     margin-bottom: 20px;
 }
 
-/* Labels en invoervelden */
 .formulier label {
     display: block;
     font-weight: bold;
@@ -285,7 +425,6 @@ main {
     min-height: 120px;
 }
 
-/* Submit knop */
 .formulier input[type="submit"] {
     background-color: #FF8A9D;
     color: white;
@@ -301,7 +440,6 @@ main {
     background-color: #ff6b84;
 }
 
-/* Terugknop */
 .terug-knop {
     display: inline-block;
     margin-top: 20px;
@@ -318,7 +456,7 @@ main {
     background-color: #555;
 }
 
-/* Responsive */
+/* Responsive gedrag */
 @media (max-width: 600px) {
     .formulier {
         padding: 20px;
@@ -330,99 +468,3 @@ main {
         text-align: center;
     }
 }
-
-/* einde css nieuws toevoegen pagina */
-
-textarea {
-    width: 100%;
-    height: 150px;
-    resize: vertical;
-    /* Of 'none' als je geen resizing wilt */
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-    white-space: pre-wrap;
-    overflow-y: auto;
-}
-
-.beschrijving {
-    max-width: 500px;
-    overflow-wrap: break-word;
-    /* Zorgt dat woorden worden afgebroken */
-    word-wrap: break-word;
-    /* Voor oudere browsers */
-    white-space: normal;
-    /* Zorgt dat tekst automatisch naar volgende regel gaat */
-}
-
-.tox .tox-edit-area__iframe {
-    font-family: 'Arial', sans-serif;
-    font-size: 14px;
-}
-
-
-.beschrijving-tekst {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #333;
-}
-
-.beschrijving-tekst ol,
-.beschrijving-tekst ul {
-    padding-left: 1.5em;
-    margin-bottom: 1em;
-}
-
-.beschrijving-tekst strong {
-    font-weight: bold;
-}
-
-.beschrijving-tekst em {
-    font-style: italic;
-}
-
-.beschrijving-tekst span {
-    text-decoration: underline;
-}
-
-.afbeelding-container {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-top: 10px;
-    background-color: #fff;
-    width: fit-content;
-}
-
-.afbeelding-header {
-    display: flex;
-    justify-content: space-between;
-    background-color: #f5f5f5;
-    padding: 5px 10px;
-    font-weight: bold;
-}
-
-.voorbeeld-afbeelding {
-    max-width: 300px;
-    margin-top: 10px;
-}
-
-button {
-    background: none;
-    border: none;
-    font-size: 18px;
-    cursor: pointer;
-}
-
-.afbeelding-wrapper {
-    width: 300px;
-    height: 200px;
-    overflow: hidden;
-    border-radius: 12px;
-}
-
-.nieuws-afbeelding {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-

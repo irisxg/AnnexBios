@@ -75,25 +75,24 @@ $conn->close();
 ?>
 <!doctype html>
 <html lang="nl">
-
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Nieuwsbericht aanpassen</title>
     <link rel="stylesheet" href="assets/nieuws.css">
 </head>
-
 <body>
     <div id="content">
         <?php include "includes/header.php"; ?>
+
         <main>
             <form method="post" enctype="multipart/form-data" class="formulier">
-                <h2>Nieuwsbericht aanpassen</h2><br><br>
+                <h2>Nieuwsbericht aanpassen</h2>
 
                 <div class="form-group">
                     <label for="titel">Titel:</label>
                     <input type="text" id="titel" name="titel" value="<?php echo htmlspecialchars($nieuws['titel']); ?>" required>
                 </div>
-
 
                 <?php if (empty($nieuws['afbeelding'])): ?>
                     <div class="form-group" id="upload-veld">
@@ -111,9 +110,7 @@ $conn->close();
                         <img src="uploads/<?php echo htmlspecialchars($nieuws['afbeelding']); ?>" alt="Afbeelding" class="voorbeeld-afbeelding">
                         <input type="hidden" name="verwijder_afbeelding" id="verwijder_afbeelding" value="0">
                     </div>
-                <?php endif; ?> <br>
-
-
+                <?php endif; ?>
 
                 <script>
                     function verwijderAfbeelding() {
@@ -121,18 +118,16 @@ $conn->close();
                         const container = document.getElementById('afbeelding-container');
                         if (container) container.remove();
 
-                        // Voeg uploadveld toe vóór de publiceerdatum
                         const uploadHTML = `
-            <div class="form-group" id="upload-veld">
-                <label for="afbeelding">Nieuwe afbeelding uploaden:</label>
-                <input type="file" id="afbeelding" name="afbeelding">
-            </div>
-        `;
+                            <div class="form-group" id="upload-veld">
+                                <label for="afbeelding">Nieuwe afbeelding uploaden:</label>
+                                <input type="file" id="afbeelding" name="afbeelding">
+                            </div>
+                        `;
                         const publiceerVeld = document.getElementById('publiceerdatum').closest('.form-group');
                         publiceerVeld.insertAdjacentHTML('beforebegin', uploadHTML);
                     }
                 </script>
-
 
                 <div class="form-group">
                     <label for="publiceerdatum">Publiceerdatum:</label>
@@ -141,9 +136,8 @@ $conn->close();
 
                 <div class="form-group">
                     <label for="beschrijving">Beschrijving:</label>
-                    <textarea id="beschrijving" name="beschrijving" required><?php echo htmlspecialchars($nieuws['beschrijving']); ?></textarea>
+                    <textarea id="beschrijving" name="beschrijving" required><?php echo htmlspecialchars(strip_tags($nieuws['beschrijving'])); ?></textarea>
                 </div>
-
 
                 <div class="form-group">
                     <input type="submit" value="Opslaan">
@@ -152,9 +146,8 @@ $conn->close();
                 <a href="nieuwsdetail.php?id=<?php echo $id; ?>" class="terug-knop">Terug naar nieuwsbericht</a>
             </form>
         </main>
+
         <?php include "includes/footer.php"; ?>
     </div>
-
 </body>
-
 </html>

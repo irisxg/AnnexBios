@@ -16,6 +16,7 @@ if ($conn->connect_error) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $titel = $_POST["titel"] ?? '';
     $publiceerdatum = $_POST["publiceerdatum"] ?? '';
+    $samenvatting = $_POST["samenvatting"] ?? '';
     $beschrijving = $_POST["beschrijving"] ?? '';
 
     // Bestand uploaden
@@ -36,8 +37,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Prepared statement gebruiken
-    $stmt = $conn->prepare("INSERT INTO nieuws (titel, publiceerdatum, beschrijving, afbeelding) VALUES (?, ?, ?, ?)");
-    $stmt->bind_param("ssss", $titel, $publiceerdatum, $beschrijving, $uniekeNaam);
+    $stmt = $conn->prepare("INSERT INTO nieuws (titel, publiceerdatum, samenvatting, beschrijving, afbeelding) VALUES (?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssss", $titel, $publiceerdatum, $samenvatting, $beschrijving, $uniekeNaam);
 
     if ($stmt->execute()) {
         header("Location: nieuws.php");
@@ -76,11 +77,13 @@ $conn->close();
                 <label for="publiceerdatum">Publiceerdatum:</label>
                 <input type="date" name="publiceerdatum" id="publiceerdatum" required>
 
+                <label for="samenvatting">Samenvatting:</label>
+                <textarea name="samenvatting" id="samenvatting"></textarea> <br>
+
                 <label for="beschrijving">Beschrijving:</label>
-                <!-- Geen 'required' hier, TinyMCE valideert via JS -->
                 <textarea name="beschrijving" id="beschrijving"></textarea>
 
-                <input type="submit" value="Nieuwsbericht toevoegen">
+                <br><input type="submit" value="Nieuwsbericht toevoegen">
                 <a href="nieuws.php" class="terug-knop">Terug naar overzicht</a>
             </form>
         </main>
@@ -93,7 +96,7 @@ $conn->close();
     <script>
     document.addEventListener("DOMContentLoaded", function () {
         tinymce.init({
-            selector: '#beschrijving',
+            selector: 'textarea#samenvatting, textarea#beschrijving',
             menubar: false,
             plugins: 'lists advlist',
             toolbar: 'undo redo | styleselect | bold italic underline | bullist numlist',
@@ -104,10 +107,12 @@ $conn->close();
         // Formulier valideren vóór verzenden
         const form = document.querySelector("form");
         form.addEventListener("submit", function (e) {
-            const content = tinymce.get("beschrijving").getContent({ format: "text" }).trim();
-            if (content === "") {
-                alert("Beschrijving mag niet leeg zijn.");
-                e.preventDefault(); // Stop formulierverzending
+            const beschrijvingContent = tinymce.get("beschrijving").getContent({ format: "text" }).trim();
+            const samenvattingContent = tinymce.get("samenvatting").getContent({ format: "text" }).trim();
+
+            if (beschrijvingContent === "" || samenvattingContent === "") {
+                alert("Samenvatting en beschrijving mogen niet leeg zijn.");
+                e.preventDefault();
             }
         });
     });

@@ -14,7 +14,7 @@ if ($conn->connect_error) {
 
 // Nieuws ophalen
 $array_nieuws = [];
-$stmt = $conn->prepare("SELECT id, titel, afbeelding, publiceerdatum, beschrijving FROM nieuws ORDER BY publiceerdatum DESC");
+$stmt = $conn->prepare("SELECT id, titel, afbeelding, publiceerdatum, samenvatting FROM nieuws ORDER BY publiceerdatum DESC");
 $stmt->execute();
 $result = $stmt->get_result();
 
@@ -54,13 +54,12 @@ $conn->close();
                                 <div class="afbeelding-wrapper">
                                     <img class="nieuws-afbeelding" src="assets/img/<?php echo htmlspecialchars($nieuws['afbeelding']); ?>" alt="<?php echo htmlspecialchars($nieuws['titel']); ?>">
                                 </div>
-
-
                                 <p class="datum">Geproduceerd op: <?php echo date("d-m-Y", strtotime($nieuws['publiceerdatum'])); ?></p>
                             </div>
                             <div class="beschrijving" style="max-width: 600px; width: 100%;">
                                 <div class="beschrijving-tekst">
-                                    <?php echo $nieuws['beschrijving']; ?>
+                                    <?php echo $nieuws['samenvatting']; ?>
+
                                 </div>
                             </div>
                         </div>
