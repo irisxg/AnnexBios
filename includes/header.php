@@ -19,7 +19,10 @@
             <div class="ticket-formulier">
                 <select class="locatie-selectie">
                     <option>Kies je vestiging</option>
-                    <option></option>
+                    <option>Bilthoven</option>
+                    <option>Montfoort</option>
+                    <option>Woerden</option>
+                    <option>Leidschereijn</option>
                 </select>
                 <button class="tickets-knop">BEKIJK TICKETS</button>
             </div>
