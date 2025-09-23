@@ -68,11 +68,13 @@ $conn->close();
             <form action="" method="post" enctype="multipart/form-data" class="formulier">
                 <h2>Nieuwsbericht toevoegen</h2><br>
 
+                <label for="titel">Titel:</label>
+                <input type="text" name="titel" id="titel" maxlength="255" required>
+                
                 <label for="afbeelding">Afbeelding:</label>
                 <input type="file" name="afbeelding" id="afbeelding" required>
 
-                <label for="titel">Titel:</label>
-                <input type="text" name="titel" id="titel" maxlength="255" required>
+                
 
                 <label for="publiceerdatum">Publiceerdatum:</label>
                 <input type="date" name="publiceerdatum" id="publiceerdatum" required>

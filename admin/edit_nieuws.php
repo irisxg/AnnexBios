@@ -32,6 +32,7 @@ $nieuws = $result->fetch_assoc();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $titel = $_POST["titel"];
     $publiceerdatum = $_POST["publiceerdatum"];
+    $samenvatting = $_POST["samenvatting"];
     $beschrijving = $_POST["beschrijving"];
     $afbeelding = $nieuws['afbeelding']; // standaard behouden
 
@@ -60,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Update uitvoeren
     $update_sql = "UPDATE nieuws 
-                   SET titel = '$titel', publiceerdatum = '$publiceerdatum', beschrijving = '$beschrijving', afbeelding = '$afbeelding' 
+                   SET titel = '$titel', publiceerdatum = '$publiceerdatum', samenvatting = '$samenvatting', beschrijving = '$beschrijving', afbeelding = '$afbeelding' 
                    WHERE id = $id";
 
     if ($conn->query($update_sql) === TRUE) {
@@ -135,8 +136,13 @@ $conn->close();
                 </div>
 
                 <div class="form-group">
+                    <label for="samenvatting">Samenvatting:</label>
+                    <textarea id="samenvatting" name="samenvatting"><?php echo $nieuws['samenvatting']; ?></textarea>
+                </div>
+
+                <div class="form-group">
                     <label for="beschrijving">Beschrijving:</label>
-                    <textarea id="beschrijving" name="beschrijving" required><?php echo htmlspecialchars(strip_tags($nieuws['beschrijving'])); ?></textarea>
+                    <textarea id="beschrijving" name="beschrijving"><?php echo $nieuws['beschrijving']; ?></textarea>
                 </div>
 
                 <div class="form-group">
@@ -149,5 +155,20 @@ $conn->close();
 
         <?php include "includes/footer.php"; ?>
     </div>
+
+    <!-- TinyMCE toevoegen -->
+    <script src="https://cdn.tiny.cloud/1/1sc7z836e8nut9yj68rsb7xnvadqyxxjzcu93x5va01l0ykp/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            tinymce.init({
+                selector: 'textarea#samenvatting, textarea#beschrijving',
+                menubar: false,
+                plugins: 'lists advlist link',
+                toolbar: 'undo redo | styleselect | bold italic underline | bullist numlist | link',
+                branding: false,
+                height: 300
+            });
+        });
+    </script>
 </body>
 </html>
