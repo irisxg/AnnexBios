@@ -46,6 +46,7 @@ $dagen = [
     </script>
 </head>
 <body class="admin-vestiging-body">
+<<<<<<< Updated upstream
 
 <a href="../vestigingen_crud/list_vestigingen.php" class="back-btn">← Terug</a>
 
@@ -53,6 +54,11 @@ $dagen = [
     <?php echo $vestiging ? "Vestiging bewerken" : "Nieuwe vestiging"; ?>
 </h1>
 
+=======
+<h1 class="admin-vestiging-title"><?php echo $vestiging ? "Vestiging bewerken" : "Nieuwe vestiging"; ?></h1>
+
+<a href="../vestigingen_crud/list_vestigingen.php" class="back-btn">← Terug</a>
+>>>>>>> Stashed changes
 <form class="admin-vestiging-form" action="save_vestiging.php" method="post">
     <input type="hidden" name="id" value="<?php echo $vestiging['id'] ?? ''; ?>">
 
@@ -61,8 +67,9 @@ $dagen = [
 
     <label>API Key:</label>
     <input type="text" name="api_key" value="<?php echo htmlspecialchars($vestiging['api_key'] ?? ''); ?>" required>
-
+    
     <h3>Openingstijden</h3>
+    <br>
     <div id="admin-openingstijden" class="admin-vestiging-repeater">
         <?php foreach ($openingtijden as $i => $ot): ?>
             <div class="admin-vestiging-card admin-vestiging-flex">
