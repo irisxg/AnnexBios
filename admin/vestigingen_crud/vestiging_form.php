@@ -1,5 +1,6 @@
 <?php
 require '../database.sql/db.php';
+include '../includes/header.php';
 
 $vestiging = null;
 $openingtijden = [];
@@ -45,8 +46,13 @@ $dagen = [
     </script>
 </head>
 <body class="admin-vestiging-body">
-<h1 class="admin-vestiging-title"><?php echo $vestiging ? "Vestiging bewerken" : "Nieuwe vestiging"; ?></h1>
-<a href="list_vestigingen.php" class="btn-terug">← Terug naar overzicht</a>
+
+<a href="../vestigingen_crud/list_vestigingen.php" class="back-btn">← Terug</a>
+
+<h1 class="admin-vestiging-title">
+    <?php echo $vestiging ? "Vestiging bewerken" : "Nieuwe vestiging"; ?>
+</h1>
+
 <form class="admin-vestiging-form" action="save_vestiging.php" method="post">
     <input type="hidden" name="id" value="<?php echo $vestiging['id'] ?? ''; ?>">
 
@@ -109,4 +115,5 @@ $dagen = [
     </div>
 </template>
 </body>
+<?php include '../includes/footer.php';?> 
 </html>

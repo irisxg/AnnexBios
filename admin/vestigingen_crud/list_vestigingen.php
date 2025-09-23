@@ -1,5 +1,6 @@
 <?php
 require '../database.sql/db.php';
+include '../includes/header.php';
 
 $stmt = $pdo->query("SELECT * FROM vestigingen ORDER BY id");
 $vestigingen = $stmt->fetchAll();
@@ -14,10 +15,11 @@ $vestigingen = $stmt->fetchAll();
 </head>
 
 <body class="admin-list-body">
-    <h1 class="admin-list-title">Vestigingen</h1>
+<div class="admin-list-container">
 
-    <div class="admin-list-container">
-        <a href="vestiging_form.php" class="admin-list-btn" style="margin-bottom:15px; display:inline-block;">+ Nieuwe vestiging</a>
+    <h1 class="admin-list-title">Vestigingen</h1>
+    <a href="vestiging_form.php" class="admin-list-btn" style="margin-bottom:15px; display:inline-block;">+ Nieuwe vestiging</a>
+
 
         <?php foreach ($vestigingen as $v): ?>
             <div class="admin-list-card">
@@ -62,5 +64,5 @@ $vestigingen = $stmt->fetchAll();
     </div>
 
 </body>
-
+<?php include '../includes/footer.php';?> 
 </html>

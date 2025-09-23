@@ -1,4 +1,8 @@
-/* begin styling nieuws */
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
 main.gloedpagina {
     background-color: #75757523;

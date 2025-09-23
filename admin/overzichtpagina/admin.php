@@ -1,5 +1,5 @@
-<!--Alles kababcase-->
-<!--commets, classes ect. in nederlands-->
+<?php include '../includes/header.php'; ?>
+
 <!doctype html>
 <html class="no-js" lang="nl">
 
@@ -10,8 +10,6 @@
     <link rel="stylesheet" href="assets/admin.css">
     <meta name="theme-color" content="#fafafa">
 </head>
-
-<?php include './includes/header.php'; ?>
 
 <body>
     <div id="content">
@@ -29,6 +27,6 @@
 
     </div>
 </body>
-<?php include './includes/footer.php'; ?>
+<?php include '../includes/footer.php'; ?>
 
 </html>

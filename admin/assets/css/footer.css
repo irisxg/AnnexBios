@@ -4,7 +4,13 @@
   padding: 0;
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
 footer {
+  padding-top: 30px;
   font-family: Arial, sans-serif;
   color: #fff;
 }

@@ -1,22 +1,14 @@
 <?php
+require 'db.php';
 session_start();
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "annexbios";
-// Nieuwe database
-
-// Maak verbinding met de database
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Controleer verbinding
 if ($conn->connect_error) {
     die("Verbinding mislukt: " . $conn->connect_error);
 }
 
-// Nieuws uit database halen
-$array_nieuws = []; // Lege array om nieuwsberichten op te slaan
+$array_nieuws = [];
 
 $stmt = $conn->prepare("SELECT id, titel, afbeelding, publiceerdatum, beschrijving FROM nieuws ORDER BY publiceerdatum DESC");
 
@@ -29,12 +21,9 @@ while ($row = $result->fetch_assoc()) {
 }
 
 
-// Verbinding sluiten
 mysqli_close($conn);
 ?>
 
-<!--Alles kababcase-->
-<!--commets, classes ect. in nederlands-->
 <!doctype html>
 <html class="no-js" lang="nl">
 

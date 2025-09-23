@@ -6,7 +6,7 @@
   <div class="footer-top">
     <div class="footer-left">
       <div class="footer-info">
-        <img src="./assets/img/annexbioslogo.png" alt="AnnexBios logo" class="footer-logo">
+        <img src="../assets/img/annexbioslogo.png" alt="AnnexBios logo" class="footer-logo">
         <p> &copy;Iris, Sam, Mylène en Jop</p>
       </div>
     </div>

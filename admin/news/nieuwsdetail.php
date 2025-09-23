@@ -1,11 +1,7 @@
 <?php
+require 'db.php';
 session_start();
 
-// Verbinding maken met de juiste database
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "annexbios"; // Let op: dit moet dezelfde database zijn als je nieuws
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 

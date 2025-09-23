@@ -1,26 +1,34 @@
-<link rel="stylesheet" href="./assets/annexbios.css">
+<head>
+<link rel="stylesheet" href="../assets/css/annexbios.css"/>
+<link rel="stylesheet" href="../assets/css/admin_vertoning_form.css"/>
+<link rel="stylesheet" href="../assets/css/admin_vertoningen_list.css"/>
+<link rel="stylesheet" href="../assets/css/admin.css"/>
+<link rel="stylesheet" href="../assets/css/footer.css"/>
+<link rel="stylesheet" href="../assets/css/admin_vestiging_form.css"/>
+<link rel="stylesheet" href="../assets/css/admin_vestigingen_list.css"/>
 
+</head>
 <header class="hoofd-header">
     <div class="header-container">
         <div class="logo">
             <a href="admin.php">
-                <img src="./assets/img/annexbioslogo.png" alt="AnnexBios" class="logo-afbeelding">
+                <img src="../assets/img/annexbioslogo.png" alt="AnnexBios" class="logo-afbeelding">
             </a>
         </div>
 
-        <!-- Hamburger knop buiten nav -->
         <button class="hamburger-knop" aria-label="Menu">☰</button>
 
         <nav class="hoofd-navigatie">
             <ul class="navigatie-lijst">
-                <li><a href="admin.php" class="navigatie-link">Home</a></li>
-                <li><a href="vestegingen.php" class="navigatie-link">Vestigingen</a></li>
-                <li><a href="films.php" class="navigatie-link">Films</a></li>
-                <li><a href="nieuws.php" class="navigatie-link">Nieuws</a></li>
+                <li><a href="../overzichtpagina/admin.php" class="navigatie-link">Home</a></li>
+                <li><a href="../vestigingen_crud/list_vestigingen.php" class="navigatie-link">Vestigingen</a></li>
+                <li><a href="../crud_films/list_vertoningen.php" class="navigatie-link">Films</a></li>
+                <li><a href="../news/nieuws.php" class="navigatie-link">Nieuws</a></li>
             </ul>
         </nav>
     </div>
 </header>
+
 
 <section class="ticket-sectie">
     <div class="ticket-container">
