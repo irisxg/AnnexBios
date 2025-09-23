@@ -1,28 +1,23 @@
 <?php
 session_start();
 
-// Verbinding maken met de juiste database
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "annexbios"; // Let op: dit moet dezelfde database zijn als je nieuws
+$dbname = "annexbios";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
-
-// Verbinding controleren
 if ($conn->connect_error) {
     die("Verbinding mislukt: " . $conn->connect_error);
 }
 
-// Controleren of er een ID is meegegeven
 if (!isset($_GET['id']) || empty($_GET['id'])) {
     echo "Geen nieuws ID opgegeven.";
     exit;
 }
 
-$id = intval($_GET['id']); // Veilig maken van ID
+$id = intval($_GET['id']);
 
-// Nieuwsbericht ophalen
 $stmt = $conn->prepare("SELECT titel, afbeelding, publiceerdatum, beschrijving FROM nieuws WHERE id = ?");
 $stmt->bind_param("i", $id);
 $stmt->execute();
@@ -35,29 +30,24 @@ if (!$result || $result->num_rows == 0) {
 
 $nieuws = $result->fetch_assoc();
 
-// Verwijderen van nieuwsbericht als formulier is ingediend
 if (isset($_POST['delete'])) {
     $delete_sql = "DELETE FROM nieuws WHERE id = $id";
     if ($conn->query($delete_sql) === TRUE) {
-        // Redirect naar overzichtspagina na verwijderen
         header("Location: nieuws.php");
         exit();
     } else {
         echo "Fout bij verwijderen: " . $conn->error;
     }
 }
-
 ?>
 
 <!doctype html>
 <html lang="nl">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?php echo htmlspecialchars($nieuws['titel']); ?></title>
     <style>
-        /* Detailpagina styling */
         main.nieuwsdetail {
             background-color: #75757523;
             display: flex;
@@ -95,14 +85,31 @@ if (isset($_POST['delete'])) {
             margin-bottom: 20px;
         }
 
-        .nieuwsdetail-container p {
-            font-size: 1em;
+        .beschrijving {
+            max-width: 700px;
+            font-size: 1rem;
             line-height: 1.6;
             color: #000;
-            margin-bottom: 30px;
         }
 
-        /* Knoppen */
+        .beschrijving ol,
+        .beschrijving ul {
+            padding-left: 1.5em;
+            margin-bottom: 1em;
+        }
+
+        .beschrijving strong {
+            font-weight: bold;
+        }
+
+        .beschrijving em {
+            font-style: italic;
+        }
+
+        .beschrijving span {
+            text-decoration: underline;
+        }
+
         .terug-knop,
         .verwijderen-knop {
             display: inline-block;
@@ -134,7 +141,6 @@ if (isset($_POST['delete'])) {
             background-color: #b80000ff;
         }
 
-        /* Responsive */
         @media (max-width: 600px) {
             .nieuwsdetail-container img {
                 max-width: 100%;
@@ -155,7 +161,6 @@ if (isset($_POST['delete'])) {
         }
     </style>
 </head>
-
 <body>
     <?php include './includes/header.php'; ?>
 
@@ -166,29 +171,27 @@ if (isset($_POST['delete'])) {
                 <h3><a href="nieuws.php">&lt; Terug</a></h3>
             </div>
 
-
-
             <br><br>
             <div>
                 <h1><?php echo htmlspecialchars($nieuws['titel']); ?></h1>
                 <img src="assets/img/<?php echo htmlspecialchars($nieuws['afbeelding']); ?>" alt="<?php echo htmlspecialchars($nieuws['titel']); ?>">
                 <p class="datum">Geplaatst op: <?php echo date("d-m-Y", strtotime($nieuws['publiceerdatum'])); ?></p>
-                <p><?php echo nl2br(htmlspecialchars($nieuws['beschrijving'])); ?></p>
+                <div class="beschrijving">
+                    <?php echo $nieuws['beschrijving']; ?>
+                </div>
             </div>
 
-            <!-- Link om nieuwsbericht aan te passen -->
+            <br>
             <a href="edit_nieuws.php?id=<?php echo $id; ?>" class="terug-knop">Nieuwsbericht aanpassen</a><br><br>
-            <!-- Verwijderknop met bevestiging -->
+
             <form method="post" onsubmit="return confirm('Weet je zeker dat je dit nieuwsbericht wilt verwijderen?');">
                 <button type="submit" name="delete" class="verwijderen-knop">Nieuwsbericht verwijderen</button>
             </form>
         </div>
-
     </main>
 
     <?php include './includes/footer.php'; ?>
 </body>
-
 </html>
 
 <?php $conn->close(); ?>
