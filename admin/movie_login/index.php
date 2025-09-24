@@ -7,7 +7,7 @@ $error = '';
 
 if(isset($_POST["login"]))
 {
-	$connect = new PDO("mysql:host=localhost;dbname=hoofdkantoor_login", "root", "");
+	$connect = new PDO("mysql:host=localhost;dbname=school_cinema", "root", "root");
 
 	if(empty($_POST["email"])){
 		$error = 'Please Enter Email Details';
