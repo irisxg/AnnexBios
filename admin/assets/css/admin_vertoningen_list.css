@@ -101,14 +101,6 @@
     background: var(--vertoning-red);
 }
 
-<<<<<<< Updated upstream
-.admin-vertoningen-table td.admin-vertoningen-actions {
-    border-bottom: none;
-}
-
-
-=======
->>>>>>> Stashed changes
 .vertoning-modal {
     display: none;
     position: fixed;
@@ -172,24 +164,6 @@
     background: var(--vertoning-red);
 }
 
-<<<<<<< Updated upstream
-.admin-vertoningen-actions {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 12px;
-    box-sizing: border-box;
-}
-
-.admin-vertoningen-table th,
-.admin-vertoningen-table td {
-    padding: 8px;
-    text-align: left;
-}
-
-=======
->>>>>>> Stashed changes
 @media (max-width: 600px) {
     .admin-vertoningen-table th,
     .admin-vertoningen-table td {
