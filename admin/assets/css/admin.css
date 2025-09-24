@@ -1,0 +1,38 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+main.hero {
+    position: relative;
+    min-height: 100vh;
+<<<<<<< Updated upstream
+    background-image: url("../img/bioscoopstoel.jpg");
+=======
+    background-image: url("../img/bioscoopstoel.png");
+>>>>>>> Stashed changes
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    box-sizing: border-box;
+    color: white;
+}
+
+main.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    pointer-events: none;
+}
+
+main.hero .content {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+}

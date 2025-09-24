@@ -1,0 +1,163 @@
+body {
+    position: relative;
+}
+
+:root {
+    --admin-red: #FF8A9D;
+    --admin-dark-gray: #2c3e50;
+    --admin-light-gray: #ecf0f1;
+    --admin-white: #ffffff;
+    --admin-pink-hover: #ff6b84;
+    --admin-black: #0000;
+}
+
+.admin-vestiging-body {
+    position: relative;
+    font-family: Arial, sans-serif;
+    background-color: var(--admin-light-gray);
+    color: var(--admin-dark-gray);
+    margin: 0;
+    padding: 0px;
+}
+
+.admin-vestiging-title {
+    color: var(--admin-red);
+    text-align: center;
+    font-size: 2em;
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+
+.admin-vestiging-form {
+    background-color: var(--admin-white);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    max-width: 800px;
+    margin: auto;
+}
+
+.admin-vestiging-form label {
+    display: block;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.admin-vestiging-form input[type="text"],
+.admin-vestiging-form input[type="number"],
+.admin-vestiging-form input[type="time"],
+.admin-vestiging-form select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.admin-vestiging-card {
+    background-color: var(--admin-light-gray);
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border-left: 5px solid var(--admin-red);
+}
+
+.admin-vestiging-repeater {
+    margin-bottom: 0px;
+}
+
+.admin-vestiging-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    color: var(--admin-white);
+    background-color: var(--admin-red);
+    transition: background-color 0.3s;
+}
+
+.admin-vestiging-btn:hover {
+    background-color: var(--admin-pink-hover);
+}
+
+.admin-vestiging-btn-repeater {
+    display: inline-block;
+    padding: 10px 20px;
+<<<<<<< Updated upstream
+    margin-top: 10px;
+=======
+    margin-top: 5px;
+>>>>>>> Stashed changes
+    margin-bottom: 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    color: var(--admin-white);
+    background-color: var(--admin-dark-gray);
+    transition: background-color 0.3s;
+}
+
+.admin-vestiging-btn-repeater:hover {
+    background-color: var(--admin-black);
+}
+
+.admin-vestiging-flex {
+    display: flex;
+    gap: 10px;
+}
+
+.admin-vestiging-flex input,
+.admin-vestiging-flex select {
+    flex: 1;
+}
+
+.back-btn {
+    background-color: var(--admin-red);
+    color: var(--admin-white);
+    padding: 8px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    position: absolute;
+    top: 215px;
+    left: 40px;
+}
+
+.back-btn:hover {
+    background-color: var(--admin-dark-gray);
+}
+
+.back-btn {
+    background-color: var(--admin-red);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+
+    position: absolute; /* Absoluut binnen de container */
+    top: 210px;
+    left: 40px;
+}
+
+.back-btn:hover {
+    background-color: var(--admin-dark-gray);
+}
+
+
+
+
+@media (max-width: 600px) {
+    .admin-vestiging-title {
+        font-size: 1.5em;
+        margin-bottom: 20px;
+    }
+}

@@ -1,0 +1,189 @@
+<<<<<<< Updated upstream
+:root {
+    --vertoning-pink: #FF8A9D;
+    --vertoning-dark-gray: #2c3e50;
+    --vertoning-light-gray: #ecf0f1;
+    --vertoning-white: #ffffff;
+    --vertoning-pink-hover: #ff6b84;
+}
+
+body.vertoning-body {
+    font-family: Arial, sans-serif;
+    background-color: var(--vertoning-light-gray);
+    color: var(--vertoning-dark-gray);
+    margin: 0;
+}
+
+h1.vertoning-title {
+    text-align: center;
+    color: var(--vertoning-pink);
+    font-size: 2em;
+    margin-bottom: 40px;
+    margin-top: 80px;
+}
+
+form.vertoning-form {
+    background-color: var(--vertoning-white);
+=======
+/* Kleuren */
+:root {
+    --avf-pink: #FF8A9D;
+    --avf-dark-gray: #2c3e50;
+    --avf-light-gray: #ecf0f1;
+    --avf-white: #ffffff;
+    --avf-pink-hover: #ff6b84;
+}
+
+/* Body en titel */
+.avf-body {
+    font-family: Arial, sans-serif;
+    background-color: var(--avf-light-gray);
+    color: var(--avf-dark-gray);
+    margin: 0;
+    padding: 0px;
+    position: relative;
+}
+
+.avf-title {
+    margin-top: 70px;
+    text-align: center;
+    color: var(--avf-pink);
+    font-size: 2em;
+    margin-bottom: 30px;
+}
+
+.avf-form {
+    background-color: var(--avf-white);
+>>>>>>> Stashed changes
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 700px;
+    margin: auto;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+<<<<<<< Updated upstream
+form.vertoning-form label {
+=======
+/* Labels en inputs */
+.avf-label {
+>>>>>>> Stashed changes
+    display: block;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+<<<<<<< Updated upstream
+form.vertoning-form input,
+form.vertoning-form select {
+=======
+.avf-input, .avf-select {
+>>>>>>> Stashed changes
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+<<<<<<< Updated upstream
+form.vertoning-form button {
+=======
+/* Buttons */
+.avf-btn {
+>>>>>>> Stashed changes
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+<<<<<<< Updated upstream
+    background-color: var(--vertoning-dark-gray);
+    color: var(--vertoning-white);
+=======
+    background-color: var(--avf-dark-gray);
+    color: var(--avf-white);
+>>>>>>> Stashed changes
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+<<<<<<< Updated upstream
+form.vertoning-form button:hover {
+    background-color: var(--vertoning-pink);
+}
+
+a.vertoning-btn-terug {
+=======
+.avf-btn:hover {
+    background-color: var(--avf-pink);
+}
+
+.avf-btn-terug-vestiging-form {
+>>>>>>> Stashed changes
+    margin-left: 450px;
+    display: inline-block;
+    margin-bottom: 1rem;
+    padding: 0.5rem 1rem;
+<<<<<<< Updated upstream
+    background-color: var(--vertoning-pink);
+    color: var(--vertoning-white);
+=======
+    background-color: var(--avf-pink);
+    color: var(--avf-white);
+>>>>>>> Stashed changes
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+<<<<<<< Updated upstream
+a.vertoning-btn-terug:hover {
+    background-color: var(--vertoning-pink-hover);
+}
+
+.admin-vertoningen-back-btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    color: var(--vertoning-white);
+    background-color: var(--vertoning-pink);
+    transition: background-color 0.3s;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.admin-vertoningen-back-btn:hover {
+    background-color: var(--vertoning-pink-hover);
+}
+
+@media (max-width: 600px) {
+    h1.vertoning-title {
+        font-size: 1.5em;
+        margin-bottom: 20px;
+    }
+
+    a.vertoning-btn-terug {
+        padding: 0.3rem 0.7rem;
+        font-size: 0.9rem;
+        top: 0.5rem;
+        left: 0.5rem;
+    }
+=======
+.avf-btn-terug-vestiging-form:hover {
+    background-color: var(--avf-pink-hover);
+}
+
+
+/* Responsive */
+@media (max-width: 600px) {
+    .avf-title {
+        font-size: 1.5em;
+        margin-bottom: 20px;
+    }
+>>>>>>> Stashed changes
+}

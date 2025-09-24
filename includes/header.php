@@ -3,6 +3,10 @@
             <div class="logo">
                 <img src="assets/img/annexlogo.png" alt="AnnexBios" class="logo-afbeelding">
             </div>
+
+              <!-- Hamburger knop buiten nav -->
+        <button class="hamburger-knop" aria-label="Menu">☰</button>
+
             <nav class="hoofd-navigatie">
                 <ul class="navigatie-lijst">
                     <li><a href="#" class="navigatie-link">VESTIGINGEN</a></li>
@@ -28,3 +32,12 @@
             </div>
         </div>
     </section>
+
+    <script>
+    const hamburgerKnop = document.querySelector('.hamburger-knop');
+    const hoofdNavigatie = document.querySelector('.hoofd-navigatie');
+
+    hamburgerKnop.addEventListener('click', () => {
+        hoofdNavigatie.classList.toggle('open');
+    });
+</script>
