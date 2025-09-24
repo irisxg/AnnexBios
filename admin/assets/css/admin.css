@@ -7,7 +7,7 @@ html, body {
 main.hero {
     position: relative;
     min-height: 100vh;
-    background-image: url("../img/bioscoopstoel.png");
+    background-image: url("../img/bioscoopstoel.jpg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
