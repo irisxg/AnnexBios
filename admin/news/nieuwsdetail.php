@@ -1,6 +1,15 @@
 <?php
 session_start();
-require '../database.sql/db.php';
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "annexbios";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+if ($conn->connect_error) {
+    die("Verbinding mislukt: " . $conn->connect_error);
+}
 
 if (!isset($_GET['id']) || empty($_GET['id'])) {
     echo "Geen nieuws ID opgegeven.";
@@ -22,18 +31,33 @@ if (!$result || $result->num_rows == 0) {
 $nieuws = $result->fetch_assoc();
 
 if (isset($_POST['delete'])) {
-    $delete_sql = "DELETE FROM nieuws WHERE id = $id";
-    if ($conn->query($delete_sql) === TRUE) {
+    // Verwijder eerst de afbeelding uit de map
+    $afbeelding = $nieuws['afbeelding'];
+    $pad = "assets/img/" . $afbeelding;
+
+    if (!empty($afbeelding) && file_exists($pad)) {
+        unlink($pad);
+    }
+
+    // Verwijder daarna het nieuwsbericht uit de database
+    $delete_sql = "DELETE FROM nieuws WHERE id = ?";
+    $delete_stmt = $conn->prepare($delete_sql);
+    $delete_stmt->bind_param("i", $id);
+
+    if ($delete_stmt->execute()) {
+        $delete_stmt->close();
         header("Location: nieuws.php");
         exit();
     } else {
         echo "Fout bij verwijderen: " . $conn->error;
     }
 }
+
 ?>
 
 <!doctype html>
 <html lang="nl">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -152,8 +176,9 @@ if (isset($_POST['delete'])) {
         }
     </style>
 </head>
+
 <body>
-    <?php include '../includes/header.php'; ?>
+    <?php include './includes/header.php'; ?>
 
     <main class="nieuwsdetail">
         <div class="nieuwsdetail-container">
@@ -181,8 +206,9 @@ if (isset($_POST['delete'])) {
         </div>
     </main>
 
-    <?php include '../includes/footer.php'; ?>
+    <?php include './includes/footer.php'; ?>
 </body>
+
 </html>
 
 <?php $conn->close(); ?>

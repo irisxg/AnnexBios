@@ -1,10 +1,21 @@
 <?php
 session_start();
-require '../database.sql/db.php';
+
+// Verbinding maken met de database
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "annexbios";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+if ($conn->connect_error) {
+    die("Verbinding mislukt: " . $conn->connect_error);
+}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $titel = $_POST["titel"] ?? '';
     $publiceerdatum = $_POST["publiceerdatum"] ?? '';
+    $samenvatting = $_POST["samenvatting"] ?? '';
     $beschrijving = $_POST["beschrijving"] ?? '';
 
     // Bestand uploaden
@@ -24,14 +35,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Uploaden van afbeelding mislukt.");
     }
 
-    // Prepared statement gebruiken
-    $stmt = $conn->prepare("INSERT INTO nieuws (titel, publiceerdatum, beschrijving, afbeelding) VALUES (?, ?, ?, ?)");
-    $stmt->bind_param("ssss", $titel, $publiceerdatum, $beschrijving, $uniekeNaam);
+    // Gegevens opslaan in database
+    $stmt = $conn->prepare("INSERT INTO nieuws (titel, publiceerdatum, samenvatting, beschrijving, afbeelding) VALUES (?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssss", $titel, $publiceerdatum, $samenvatting, $beschrijving, $uniekeNaam);
 
     if ($stmt->execute()) {
         header("Location: nieuws.php");
         exit();
     } else {
+        // Verwijder afbeelding bij fout
+        if (file_exists($uploadPad)) {
+            unlink($uploadPad);
+        }
         echo "Fout bij toevoegen: " . $stmt->error;
     }
 
@@ -42,34 +57,38 @@ $conn->close();
 ?>
 <!doctype html>
 <html lang="nl">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Nieuwsbericht toevoegen</title>
     <link rel="stylesheet" href="assets/nieuws.css">
 </head>
+
 <body>
     <div id="content">
-        <?php include "../includes/header.php"; ?>
+        <?php include "includes/header.php"; ?>
 
         <main>
             <form action="" method="post" enctype="multipart/form-data" class="formulier">
                 <h2>Nieuwsbericht toevoegen</h2><br>
 
-                <label for="afbeelding">Afbeelding:</label>
-                <input type="file" name="afbeelding" id="afbeelding" required>
-
                 <label for="titel">Titel:</label>
                 <input type="text" name="titel" id="titel" maxlength="255" required>
+
+                <label for="afbeelding">Afbeelding:</label>
+                <input type="file" name="afbeelding" id="afbeelding" accept=".jpg,.jpeg,.png,.gif" required>
 
                 <label for="publiceerdatum">Publiceerdatum:</label>
                 <input type="date" name="publiceerdatum" id="publiceerdatum" required>
 
+                <label for="samenvatting">Samenvatting:</label>
+                <textarea name="samenvatting" id="samenvatting"></textarea> <br>
+
                 <label for="beschrijving">Beschrijving:</label>
-                <!-- Geen 'required' hier, TinyMCE valideert via JS -->
                 <textarea name="beschrijving" id="beschrijving"></textarea>
 
-                <input type="submit" value="Nieuwsbericht toevoegen">
+                <br><input type="submit" value="Nieuwsbericht toevoegen">
                 <a href="nieuws.php" class="terug-knop">Terug naar overzicht</a>
             </form>
         </main>
@@ -80,26 +99,33 @@ $conn->close();
     <!-- Scripts onderaan de pagina -->
     <script src="https://cdn.tiny.cloud/1/1sc7z836e8nut9yj68rsb7xnvadqyxxjzcu93x5va01l0ykp/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        tinymce.init({
-            selector: '#beschrijving',
-            menubar: false,
-            plugins: 'lists advlist',
-            toolbar: 'undo redo | styleselect | bold italic underline | bullist numlist',
-            branding: false,
-            height: 300
-        });
+        document.addEventListener("DOMContentLoaded", function() {
+            tinymce.init({
+                selector: 'textarea#samenvatting, textarea#beschrijving',
+                menubar: false,
+                plugins: 'lists advlist',
+                toolbar: 'undo redo | styleselect | bold italic underline | bullist numlist',
+                branding: false,
+                height: 300
+            });
 
-        // Formulier valideren vóór verzenden
-        const form = document.querySelector("form");
-        form.addEventListener("submit", function (e) {
-            const content = tinymce.get("beschrijving").getContent({ format: "text" }).trim();
-            if (content === "") {
-                alert("Beschrijving mag niet leeg zijn.");
-                e.preventDefault(); // Stop formulierverzending
-            }
+            // Formulier valideren vóór verzenden
+            const form = document.querySelector("form");
+            form.addEventListener("submit", function(e) {
+                const beschrijvingContent = tinymce.get("beschrijving").getContent({
+                    format: "text"
+                }).trim();
+                const samenvattingContent = tinymce.get("samenvatting").getContent({
+                    format: "text"
+                }).trim();
+
+                if (beschrijvingContent === "" || samenvattingContent === "") {
+                    alert("Samenvatting en beschrijving mogen niet leeg zijn.");
+                    e.preventDefault();
+                }
+            });
         });
-    });
     </script>
 </body>
+
 </html>
