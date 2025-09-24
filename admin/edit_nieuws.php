@@ -20,13 +20,17 @@ if (!isset($_GET['id']) || empty($_GET['id'])) {
 $id = intval($_GET['id']);
 
 // Nieuwsbericht ophalen
-$sql = "SELECT * FROM nieuws WHERE id = $id";
-$result = $conn->query($sql);
+$sql = "SELECT * FROM nieuws WHERE id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $id);
+$stmt->execute();
+$result = $stmt->get_result();
 if (!$result || $result->num_rows == 0) {
     echo "Nieuwsbericht niet gevonden.";
     exit;
 }
 $nieuws = $result->fetch_assoc();
+$stmt->close();
 
 // Formulierverwerking
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -36,44 +40,58 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $beschrijving = $_POST["beschrijving"];
     $afbeelding = $nieuws['afbeelding']; // standaard behouden
 
+    $uploadDir = 'assets/img/';
+
     // Verwijderen van afbeelding via formulier
     if (isset($_POST['verwijder_afbeelding']) && $_POST['verwijder_afbeelding'] == '1') {
-        if (!empty($afbeelding) && file_exists("uploads/" . $afbeelding)) {
-            unlink("uploads/" . $afbeelding);
+        if (!empty($afbeelding) && file_exists($uploadDir . $afbeelding)) {
+            unlink($uploadDir . $afbeelding);
         }
         $afbeelding = '';
     }
 
     // Nieuwe afbeelding uploaden
     if (isset($_FILES['afbeelding']) && $_FILES['afbeelding']['error'] == UPLOAD_ERR_OK) {
-        $uploadDir = 'uploads/';
-        $bestandsnaam = basename($_FILES['afbeelding']['name']);
-        $uploadPad = $uploadDir . $bestandsnaam;
+        $origineleNaam = basename($_FILES['afbeelding']['name']);
+        $bestandstype = $_FILES['afbeelding']['type'];
+        $toegestane_types = ["image/jpeg", "image/png", "image/gif"];
+
+        if (!in_array($bestandstype, $toegestane_types)) {
+            die("Ongeldig bestandstype. Alleen JPG, PNG en GIF zijn toegestaan.");
+        }
+
+        $uniekeNaam = uniqid() . "_" . $origineleNaam;
+        $uploadPad = $uploadDir . $uniekeNaam;
 
         if (move_uploaded_file($_FILES['afbeelding']['tmp_name'], $uploadPad)) {
             // Oude afbeelding verwijderen
             if (!empty($nieuws['afbeelding']) && file_exists($uploadDir . $nieuws['afbeelding'])) {
                 unlink($uploadDir . $nieuws['afbeelding']);
             }
-            $afbeelding = $bestandsnaam;
+            $afbeelding = $uniekeNaam;
         }
     }
 
     // Update uitvoeren
     $update_sql = "UPDATE nieuws 
-                   SET titel = '$titel', publiceerdatum = '$publiceerdatum', samenvatting = '$samenvatting', beschrijving = '$beschrijving', afbeelding = '$afbeelding' 
-                   WHERE id = $id";
+                   SET titel = ?, publiceerdatum = ?, samenvatting = ?, beschrijving = ?, afbeelding = ? 
+                   WHERE id = ?";
+    $update_stmt = $conn->prepare($update_sql);
+    $update_stmt->bind_param("sssssi", $titel, $publiceerdatum, $samenvatting, $beschrijving, $afbeelding, $id);
 
-    if ($conn->query($update_sql) === TRUE) {
+    if ($update_stmt->execute()) {
         header("Location: nieuwsdetail.php?id=$id");
         exit();
     } else {
         echo "Fout bij bijwerken: " . $conn->error;
     }
+
+    $update_stmt->close();
 }
 
 $conn->close();
 ?>
+
 <!doctype html>
 <html lang="nl">
 <head>

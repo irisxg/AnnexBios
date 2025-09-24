@@ -8,7 +8,6 @@ $password = "";
 $dbname = "annexbios";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
-
 if ($conn->connect_error) {
     die("Verbinding mislukt: " . $conn->connect_error);
 }
@@ -36,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Uploaden van afbeelding mislukt.");
     }
 
-    // Prepared statement gebruiken
+    // Gegevens opslaan in database
     $stmt = $conn->prepare("INSERT INTO nieuws (titel, publiceerdatum, samenvatting, beschrijving, afbeelding) VALUES (?, ?, ?, ?, ?)");
     $stmt->bind_param("sssss", $titel, $publiceerdatum, $samenvatting, $beschrijving, $uniekeNaam);
 
@@ -44,6 +43,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: nieuws.php");
         exit();
     } else {
+        // Verwijder afbeelding bij fout
+        if (file_exists($uploadPad)) {
+            unlink($uploadPad);
+        }
         echo "Fout bij toevoegen: " . $stmt->error;
     }
 
@@ -70,11 +73,9 @@ $conn->close();
 
                 <label for="titel">Titel:</label>
                 <input type="text" name="titel" id="titel" maxlength="255" required>
-                
-                <label for="afbeelding">Afbeelding:</label>
-                <input type="file" name="afbeelding" id="afbeelding" required>
 
-                
+                <label for="afbeelding">Afbeelding:</label>
+                <input type="file" name="afbeelding" id="afbeelding" accept=".jpg,.jpeg,.png,.gif" required>
 
                 <label for="publiceerdatum">Publiceerdatum:</label>
                 <input type="date" name="publiceerdatum" id="publiceerdatum" required>
