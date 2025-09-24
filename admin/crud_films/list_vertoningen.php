@@ -3,7 +3,8 @@ require '../database.sql/db.php';
 include '../includes/header.php';
 
 $stmt = $pdo->query("
-    SELECT v.id, v.starttijd, v.prijs,
+    SELECT v.id, v.starttijd, 
+           v.prijs_normaal, v.prijs_kind, v.prijs_senior,
            ve.name AS vestiging, z.name AS zaal, m.title AS film
     FROM vertoningen v
     JOIN vestigingen ve ON v.vestiging_id = ve.id
@@ -33,7 +34,9 @@ $vertoningen = $stmt->fetchAll();
             <th>Zaal</th>
             <th>Film</th>
             <th>Starttijd</th>
-            <th>Prijs</th>
+            <th>Prijs normaal</th>
+            <th>Prijs kind</th>
+            <th>Prijs 65+</th>
             <th>Acties</th>
         </tr>
         <?php foreach ($vertoningen as $v): ?>
@@ -42,7 +45,9 @@ $vertoningen = $stmt->fetchAll();
                 <td><?php echo htmlspecialchars($v['zaal']); ?></td>
                 <td><?php echo htmlspecialchars($v['film']); ?></td>
                 <td><?php echo date('d-m-Y H:i', strtotime($v['starttijd'])); ?></td>
-                <td>€ <?php echo number_format($v['prijs'], 2, ',', '.'); ?></td>
+                <td>€ <?php echo number_format($v['prijs_normaal'], 2, ',', '.'); ?></td>
+                <td>€ <?php echo number_format($v['prijs_kind'], 2, ',', '.'); ?></td>
+                <td>€ <?php echo number_format($v['prijs_senior'], 2, ',', '.'); ?></td>
                 <td class="admin-vertoningen-actions">
                     <a href="vertoning_form.php?id=<?php echo $v['id']; ?>" 
                        class="vertoning-btn-edit">Bewerken</a>
@@ -82,7 +87,9 @@ function closeVertoningDeleteModal() {
     document.getElementById('vertoningDeleteModal').style.display = 'none';
 }
 </script>
-
+<br>
+<br>
+<br>
 </body>
 <?php include '../includes/footer.php';?> 
 </html>

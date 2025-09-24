@@ -2,15 +2,20 @@
 require '../database.sql/db.php';
 
 // POST-velden ophalen en veilig checken
-$id           = $_POST['id'] ?? null;
-$vestiging_id = $_POST['vestiging_id'] ?? null;
-$zaal_id      = $_POST['zaal_id'] ?? null;
-$movie_id     = $_POST['movie_id'] ?? null;
-$starttijd    = $_POST['start_time'] ?? null; // blijft dezelfde POST-name
-$prijs        = $_POST['price'] ?? null;
+$id            = $_POST['id'] ?? null;
+$vestiging_id  = $_POST['vestiging_id'] ?? null;
+$zaal_id       = $_POST['zaal_id'] ?? null;
+$movie_id      = $_POST['movie_id'] ?? null;
+$starttijd     = $_POST['start_time'] ?? null;
+$prijs_normaal = $_POST['price_normaal'] ?? null;
+$prijs_kind    = $_POST['price_kind'] ?? null;
+$prijs_senior  = $_POST['price_senior'] ?? null;
 
 // Controleer of alle velden aanwezig zijn
-if (!$vestiging_id || !$zaal_id || !$movie_id || !$starttijd || !$prijs) {
+if (
+    !$vestiging_id || !$zaal_id || !$movie_id || !$starttijd ||
+    $prijs_normaal === null || $prijs_kind === null || $prijs_senior === null
+) {
     die("Fout: Formulier is incompleet of waarden ontbreken.");
 }
 
@@ -45,16 +50,35 @@ if ($startTime < $openTime || $startTime > $closeTime) {
 
 // Insert of update in database
 if ($id) {
-    $stmt = $pdo->prepare("UPDATE vertoningen SET vestiging_id=?, zaal_id=?, movie_id=?, starttijd=?, prijs=? WHERE id=?");
-    $stmt->execute([$vestiging_id, $zaal_id, $movie_id, $starttijd, $prijs, $id]);
+    $stmt = $pdo->prepare("UPDATE vertoningen 
+                           SET vestiging_id=?, zaal_id=?, movie_id=?, starttijd=?, 
+                               prijs_normaal=?, prijs_kind=?, prijs_senior=? 
+                           WHERE id=?");
+    $stmt->execute([
+        $vestiging_id,
+        $zaal_id,
+        $movie_id,
+        $starttijd,
+        $prijs_normaal,
+        $prijs_kind,
+        $prijs_senior,
+        $id
+    ]);
 } else {
-    $stmt = $pdo->prepare("INSERT INTO vertoningen (vestiging_id, zaal_id, movie_id, starttijd, prijs) VALUES (?,?,?,?,?)");
-    $stmt->execute([$vestiging_id, $zaal_id, $movie_id, $starttijd, $prijs]);
+    $stmt = $pdo->prepare("INSERT INTO vertoningen 
+        (vestiging_id, zaal_id, movie_id, starttijd, prijs_normaal, prijs_kind, prijs_senior) 
+        VALUES (?,?,?,?,?,?,?)");
+    $stmt->execute([
+        $vestiging_id,
+        $zaal_id,
+        $movie_id,
+        $starttijd,
+        $prijs_normaal,
+        $prijs_kind,
+        $prijs_senior
+    ]);
 }
 
 // Terug naar de lijst
 header("Location: list_vertoningen.php");
 exit;
-
-
-

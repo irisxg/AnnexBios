@@ -12,7 +12,6 @@ if (isset($_GET['id'])) {
     $vertoning = $stmt->fetch();
 }
 
-
 $zalen = [];
 if ($vertoning) {
     $stmt = $pdo->prepare("SELECT * FROM zalen WHERE vestiging_id = ?");
@@ -85,13 +84,26 @@ if ($vertoning) {
                value="<?php echo $vertoning ? date('Y-m-d\TH:i', strtotime($vertoning['starttijd'])) : ''; ?>" required>
         <br>
 
-        <label class="avf-label">Prijs (€):</label>
-        <input type="number" name="price" step="0.01" class="avf-input"
-               value="<?php echo $vertoning['prijs'] ?? ''; ?>" required>
+        <label class="avf-label">Prijs normaal (€):</label>
+        <input type="number" name="price_normaal" step="0.01" class="avf-input"
+               value="<?php echo $vertoning['prijs_normaal'] ?? ''; ?>" required>
+        <br>
+
+        <label class="avf-label">Prijs kinderen t/m 11 jaar (€):</label>
+        <input type="number" name="price_kind" step="0.01" class="avf-input"
+               value="<?php echo $vertoning['prijs_kind'] ?? ''; ?>" required>
+        <br>
+
+        <label class="avf-label">Prijs 65+ (€):</label>
+        <input type="number" name="price_senior" step="0.01" class="avf-input"
+               value="<?php echo $vertoning['prijs_senior'] ?? ''; ?>" required>
         <br><br>
 
         <button type="submit" class="avf-btn">Opslaan</button>
     </form>
+    <br>
+    <br>
+    <br>
 </body>
 <?php include '../includes/footer.php';?> 
 </html>
