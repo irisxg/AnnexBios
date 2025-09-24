@@ -7,11 +7,7 @@ html, body {
 main.hero {
     position: relative;
     min-height: 100vh;
-<<<<<<< Updated upstream
-    background-image: url("../img/bioscoopstoel.jpg");
-=======
     background-image: url("../img/bioscoopstoel.png");
->>>>>>> Stashed changes
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
