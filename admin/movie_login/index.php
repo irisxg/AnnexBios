@@ -35,7 +35,7 @@ if(isset($_POST["login"]))
 					'HS256'
 				);
 				setcookie("token", $token, time() + 3600, "/", "", true, true);
-				header('location:admin.php');
+				header('location:../overzichtpagina/admin.php');
 
 			} else {
 				$error = 'Wrong Password';
