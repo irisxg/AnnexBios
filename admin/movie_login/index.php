@@ -5,6 +5,9 @@ use Firebase\JWT\JWT;
 
 $error = '';
 
+if(isset($_POST["login"]))
+{
+	$connect = new PDO("mysql:host=localhost;dbname=school_cinema", "root", "root");
 if (isset($_POST["login"])) {
 	$connect = new PDO("mysql:host=localhost;dbname=hoofdkantoor_login", "root", "");
 
@@ -34,7 +37,7 @@ if (isset($_POST["login"])) {
 					'HS256'
 				);
 				setcookie("token", $token, time() + 3600, "/", "", true, true);
-				header('location:admin.php');
+				header('location:../overzichtpagina/admin.php');
 
 			} else {
 				$error = 'Wrong Password';
@@ -54,6 +57,9 @@ if (isset($_POST["login"])) {
 
 <!doctype html>
 <html lang="en">
+  	<head>
+    	<meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <head>
 	<!-- Required meta tags -->

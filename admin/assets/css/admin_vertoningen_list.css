@@ -101,11 +101,6 @@
     background: var(--vertoning-red);
 }
 
-.admin-vertoningen-table td.admin-vertoningen-actions {
-    border-bottom: none;
-}
-
-
 .vertoning-modal {
     display: none;
     position: fixed;
@@ -167,21 +162,6 @@
 
 .vertoning-modal .vertoning-btn-delete:hover {
     background: var(--vertoning-red);
-}
-
-.admin-vertoningen-actions {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 12px;
-    box-sizing: border-box;
-}
-
-.admin-vertoningen-table th,
-.admin-vertoningen-table td {
-    padding: 8px;
-    text-align: left;
 }
 
 @media (max-width: 600px) {

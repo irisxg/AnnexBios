@@ -1,7 +1,4 @@
 <?php
-
-//welcome.php
-
 require 'vendor/autoload.php';
 
 use Firebase\JWT\JWT;
@@ -12,7 +9,7 @@ $key = '1a3LM3W966D6QTJ5BJb9opunkUcw_d09NCOIJb9QZTsrneqOICoMoeYUDcd_NfaQyR787PAH
 if(isset($_COOKIE['token'])){
 	$decoded = JWT::decode($_COOKIE['token'], new Key($key, 'HS256'));
 } else {
-	header('location:index.php');
+	header('location:../overzichtpagina/admin.php');
 }
 
 ?>

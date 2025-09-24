@@ -117,7 +117,7 @@ $conn->close();
                             <span>Huidige afbeelding</span>
                             <button type="button" onclick="verwijderAfbeelding()">✖</button>
                         </div>
-                        <img src="uploads/<?php echo htmlspecialchars($nieuws['afbeelding']); ?>" alt="Afbeelding" class="voorbeeld-afbeelding">
+                        <img src="../assets/img/<?php echo htmlspecialchars($nieuws['afbeelding']); ?>" alt="Afbeelding" class="voorbeeld-afbeelding">
                         <input type="hidden" name="verwijder_afbeelding" id="verwijder_afbeelding" value="0">
                     </div>
                 <?php endif; ?>
