@@ -1,16 +1,7 @@
 <?php
 session_start();
-
-// Verbinding met de database
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "annexbios";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-    die("Verbinding mislukt: " . $conn->connect_error);
-}
+require '../database.sql/db.php';
+include "../includes/header.php";
 
 // Controleren of er een ID is meegegeven
 if (!isset($_GET['id']) || empty($_GET['id'])) {
@@ -40,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $beschrijving = $_POST["beschrijving"];
     $afbeelding = $nieuws['afbeelding']; // standaard behouden
 
-    $uploadDir = 'assets/img/';
+    $uploadDir = '../assets/img/';
 
     // Verwijderen van afbeelding via formulier
     if (isset($_POST['verwijder_afbeelding']) && $_POST['verwijder_afbeelding'] == '1') {
@@ -104,8 +95,6 @@ $conn->close();
 
 <body>
     <div id="content">
-        <?php include "includes/header.php"; ?>
-
         <main>
             <form method="post" enctype="multipart/form-data" class="formulier">
                 <h2>Nieuwsbericht aanpassen</h2>
@@ -173,7 +162,7 @@ $conn->close();
             </form>
         </main>
 
-        <?php include "includes/footer.php"; ?>
+        <?php include "../includes/footer.php"; ?>
     </div>
 
     <!-- TinyMCE toevoegen -->

@@ -1,16 +1,6 @@
 <?php
 session_start();
-
-// Verbinding maken met de database
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "annexbios";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-    die("Verbinding mislukt: " . $conn->connect_error);
-}
+require '../database.sql/db.php';
 
 // ID ophalen en controleren
 $id = intval($_GET['id'] ?? 0);
@@ -31,7 +21,7 @@ if ($result && $result->num_rows > 0) {
     $afbeelding = $row['afbeelding'];
 
     // Verwijder afbeelding uit assets/img/
-    $pad = "assets/img/" . $afbeelding;
+    $pad = "../assets/img/" . $afbeelding;
     if (!empty($afbeelding) && file_exists($pad)) {
         unlink($pad);
     }

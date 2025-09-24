@@ -1,16 +1,6 @@
 <?php
 session_start();
-
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "annexbios";
-
-// Maak verbinding met de database
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-    die("Verbinding mislukt: " . $conn->connect_error);
-}
+require '../database.sql/db.php';
 
 // Nieuws ophalen
 $array_nieuws = [];
@@ -37,7 +27,7 @@ $conn->close();
 </head>
 
 <body>
-    <?php include './includes/header.php'; ?>
+    <?php include '../includes/header.php'; ?>
 
     <div id="content">
         <main class="gloedpagina">
@@ -52,7 +42,7 @@ $conn->close();
                         <div class="nieuws-content">
                             <div class="links">
                                 <div class="afbeelding-wrapper">
-                                    <img class="nieuws-afbeelding" src="assets/img/<?php echo htmlspecialchars($nieuws['afbeelding']); ?>" alt="<?php echo htmlspecialchars($nieuws['titel']); ?>">
+                                    <img class="nieuws-afbeelding" src="../assets/img/<?php echo htmlspecialchars($nieuws['afbeelding']); ?>" alt="<?php echo htmlspecialchars($nieuws['titel']); ?>">
                                 </div>
                                 <p class="datum">Geproduceerd op: <?php echo date("d-m-Y", strtotime($nieuws['publiceerdatum'])); ?></p>
                             </div>
@@ -69,7 +59,7 @@ $conn->close();
         </main>
     </div>
 
-    <?php include './includes/footer.php'; ?>
+    <?php include '../includes/footer.php'; ?>
 </body>
 
 </html>

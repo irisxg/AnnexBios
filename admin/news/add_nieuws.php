@@ -1,16 +1,7 @@
 <?php
 session_start();
-
-// Verbinding maken met de database
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "annexbios";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-    die("Verbinding mislukt: " . $conn->connect_error);
-}
+require '../database.sql/db.php';
+include "../includes/header.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $titel = $_POST["titel"] ?? '';
@@ -19,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $beschrijving = $_POST["beschrijving"] ?? '';
 
     // Bestand uploaden
-    $target_dir = "assets/img/";
+    $target_dir = "../assets/img/";
     $origineleNaam = basename($_FILES["afbeelding"]["name"]);
     $bestandstype = $_FILES["afbeelding"]["type"];
     $toegestane_types = ["image/jpeg", "image/png", "image/gif"];
@@ -67,8 +58,6 @@ $conn->close();
 
 <body>
     <div id="content">
-        <?php include "includes/header.php"; ?>
-
         <main>
             <form action="" method="post" enctype="multipart/form-data" class="formulier">
                 <h2>Nieuwsbericht toevoegen</h2><br>
@@ -93,7 +82,7 @@ $conn->close();
             </form>
         </main>
 
-        <?php include "includes/footer.php"; ?>
+        <?php include "../includes/footer.php"; ?>
     </div>
 
     <!-- Scripts onderaan de pagina -->
