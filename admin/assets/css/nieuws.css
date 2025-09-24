@@ -26,7 +26,11 @@ a {
     padding: 20px;
     max-width: 900px;
     background-color: transparent;
+<<<<<<< Updated upstream
     margin-left: 200px; /* Toegevoegd om afstand vanaf links te creëren */
+=======
+    margin-left: 200px;
+>>>>>>> Stashed changes
 }
 
 
