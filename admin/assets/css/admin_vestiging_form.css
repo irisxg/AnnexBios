@@ -132,27 +132,6 @@ body {
     background-color: var(--admin-dark-gray);
 }
 
-.back-btn {
-    background-color: var(--admin-red);
-    color: white;
-    padding: 8px 16px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-
-    position: absolute; /* Absoluut binnen de container */
-    top: 210px;
-    left: 40px;
-}
-
-.back-btn:hover {
-    background-color: var(--admin-dark-gray);
-}
-
-
-
-
 @media (max-width: 600px) {
     .admin-vestiging-title {
         font-size: 1.5em;

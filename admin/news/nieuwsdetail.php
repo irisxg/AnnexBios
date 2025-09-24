@@ -1,6 +1,7 @@
 <?php
 session_start();
 require '../database.sql/db.php';
+include '../includes/header.php';
 
 if (!isset($_GET['id']) || empty($_GET['id'])) {
     echo "Geen nieuws ID opgegeven.";
@@ -22,18 +23,33 @@ if (!$result || $result->num_rows == 0) {
 $nieuws = $result->fetch_assoc();
 
 if (isset($_POST['delete'])) {
-    $delete_sql = "DELETE FROM nieuws WHERE id = $id";
-    if ($conn->query($delete_sql) === TRUE) {
+    // Verwijder eerst de afbeelding uit de map
+    $afbeelding = $nieuws['afbeelding'];
+    $pad = "../assets/img/" . $afbeelding;
+
+    if (!empty($afbeelding) && file_exists($pad)) {
+        unlink($pad);
+    }
+
+    // Verwijder daarna het nieuwsbericht uit de database
+    $delete_sql = "DELETE FROM nieuws WHERE id = ?";
+    $delete_stmt = $conn->prepare($delete_sql);
+    $delete_stmt->bind_param("i", $id);
+
+    if ($delete_stmt->execute()) {
+        $delete_stmt->close();
         header("Location: nieuws.php");
         exit();
     } else {
         echo "Fout bij verwijderen: " . $conn->error;
     }
 }
+
 ?>
 
 <!doctype html>
 <html lang="nl">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -132,6 +148,23 @@ if (isset($_POST['delete'])) {
             background-color: #b80000ff;
         }
 
+        .back-btn-news {
+            background-color: #FF8A9D;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            position: absolute;
+            top: 12px;
+            left: 40px;
+        }
+
+        .back-btn-news:hover {
+            background-color: #2c3e50 ;
+        }
+
         @media (max-width: 600px) {
             .nieuwsdetail-container img {
                 max-width: 100%;
@@ -148,24 +181,23 @@ if (isset($_POST['delete'])) {
 
         .link a {
             text-decoration: none;
-            color: inherit;
         }
     </style>
 </head>
+
 <body>
-    <?php include '../includes/header.php'; ?>
 
     <main class="nieuwsdetail">
         <div class="nieuwsdetail-container">
 
             <div class="link">
-                <h3><a href="nieuws.php">&lt; Terug</a></h3>
+                <a href="nieuws.php" class="back-btn-news">← Terug</a>
             </div>
 
             <br><br>
             <div>
                 <h1><?php echo htmlspecialchars($nieuws['titel']); ?></h1>
-                <img src="assets/img/<?php echo htmlspecialchars($nieuws['afbeelding']); ?>" alt="<?php echo htmlspecialchars($nieuws['titel']); ?>">
+                <img src="../assets/img/<?php echo htmlspecialchars($nieuws['afbeelding']); ?>" alt="<?php echo htmlspecialchars($nieuws['titel']); ?>">
                 <p class="datum">Geplaatst op: <?php echo date("d-m-Y", strtotime($nieuws['publiceerdatum'])); ?></p>
                 <div class="beschrijving">
                     <?php echo $nieuws['beschrijving']; ?>
@@ -183,6 +215,7 @@ if (isset($_POST['delete'])) {
 
     <?php include '../includes/footer.php'; ?>
 </body>
+
 </html>
 
 <?php $conn->close(); ?>
