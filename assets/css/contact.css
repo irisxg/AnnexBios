@@ -1,0 +1,94 @@
+/* Basisstyling */
+body {
+    font-family: 'Arial', sans-serif;
+    background: #111; /* donker bioscoop-achtig */
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+#content {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    background: #1c1c1c;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(255, 0, 100, 0.5);
+}
+
+h2 {
+    text-align: center;
+    color: #ff0066;
+    margin-bottom: 30px;
+    font-family: 'Courier New', monospace;
+    text-shadow: 0 0 5px #ff0066;
+}
+
+.formulier .form-group {
+    margin-bottom: 20px;
+}
+
+.formulier label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #ff66cc;
+}
+
+.formulier input[type="text"],
+.formulier input[type="email"],
+.formulier textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #333;
+    border-radius: 10px;
+    background: #222;
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+    transition: border 0.3s, box-shadow 0.3s;
+}
+
+.formulier input[type="text"]:focus,
+.formulier input[type="email"]:focus,
+.formulier textarea:focus {
+    border-color: #ff0066;
+    box-shadow: 0 0 10px #ff0066;
+}
+
+.formulier input[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    background: #ff0066;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+.formulier input[type="submit"]:hover {
+    background: #ff3399;
+    box-shadow: 0 0 15px #ff3399;
+}
+
+.success {
+    background: #00cc66;
+    color: #111;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.error {
+    background: #cc0000;
+    color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+}
