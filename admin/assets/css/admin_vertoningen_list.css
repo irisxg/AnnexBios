@@ -164,6 +164,18 @@
     background: var(--vertoning-red);
 }
 
+.admin-vertoningen-actions {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: center;
+}
+
+.admin-vertoningen-actions a {
+    flex-shrink: 0;
+}
+
+
 @media (max-width: 600px) {
     .admin-vertoningen-table th,
     .admin-vertoningen-table td {

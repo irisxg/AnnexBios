@@ -2,14 +2,10 @@
 require './vendor/autoload.php';
  
 use Firebase\JWT\JWT;
+
  
-$error = '';
- 
-if(isset($_POST["login"]))
-{
-    $connect = new PDO("mysql:host=localhost;dbname=school_cinema", "root", "root");
-if (isset($_POST["login"])) {
-    $connect = new PDO("mysql:host=localhost;dbname=hoofdkantoor_login", "root", "");
+if(isset($_POST["login"])){ 
+	$connect = new PDO("mysql:host=localhost;dbname=school_cinema", "root", "root");
  
     if (empty($_POST["email"])) {
         $error = 'Please Enter Email Details';
@@ -49,11 +45,13 @@ if (isset($_POST["login"])) {
    
     }
 }
+ 
+ 
 }
  
  
  
- 
+
 ?>
  
  
