@@ -1,19 +1,32 @@
-const container = document.querySelector('.film-slider-container');
-const slider = document.querySelector('.film-slider');
-if (container && slider) {
+const container = document.querySelector(".film-slider-container");
+const slider = document.querySelector(".film-slider");
 
-  slider.innerHTML += slider.innerHTML;
+slider.innerHTML += slider.innerHTML;
 
-  let scrollAmount = 0;
-  const slideWidth = slider.scrollWidth / 2;
+const slideWidth = slider.scrollWidth / 2;
+let scrollAmount = 20;
+let hovering = false;
 
-  function autoScroll() {
-    scrollAmount += 2;
-    if (scrollAmount >= slideWidth) {
-      scrollAmount = 0;
-    }
-    container.scrollLeft = scrollAmount;
-    requestAnimationFrame(autoScroll);
+container.addEventListener("mouseenter", () => {
+  console.log("hover");
+  hovering = true;
+});
+
+container.addEventListener("mouseleave", () => {
+  console.log("hover");
+  hovering = false;
+});
+
+function autoScroll() {
+  //console.log(container);
+
+  //  if (scrollAmount >= slideWidth) {
+  //     scrollAmount = 0;
+  //   }
+  if (!hovering) {
+    container.scrollLeft += scrollAmount;
   }
-  autoScroll();
+  // console.log(scrollAmount, slideWidth);
+  requestAnimationFrame(autoScroll);
 }
+autoScroll();

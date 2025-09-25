@@ -1,0 +1,30 @@
+body {
+    background-image: url("http://localhost/AnnexBios/assets/img/achtergrondbios.jpg");
+
+}
+
+.login-button {
+
+    background-color: #c70c21ff;
+    border-radius: 5px;
+    width: 100px;
+    height: 40px;
+    border-color: #FF8A9D;
+}
+
+.login-button:hover {
+
+    background-color: rgb(180, 0, 21);
+}
+
+.card-header {
+    background-color: #ff8a9d3d;
+}
+
+.card{
+    box-shadow: 1px 1px 2px pink;
+}
+
+.card:hover{
+    box-shadow: 10px 10px 10px pink;
+}

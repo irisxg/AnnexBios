@@ -1,2 +1,2 @@
 # AnnexBios
-graag repositories makne bij elk nieuw ding 
+graag repositories maken bij elk nieuw ding 

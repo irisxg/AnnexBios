@@ -126,7 +126,7 @@ main {
 
 .zwart-vak {
   background: #000;
-  color: #fff;
+  color:  #fff;
   width: 100%;
   height: 400px;
   margin: 40px auto;
@@ -153,7 +153,7 @@ main {
 .vestigingen-grid > div {
   height: 300px;
   width: 100%;
-  background-color: #f1f1f1;
+  background-color: #f5f5f5;
   border: 1px solid #000;
   padding: 50px;
   font-size: 20px;
@@ -177,7 +177,7 @@ main {
 }
 
 .nieuws-container > div {
-  background: #fff;
+  background: #f5f5f5;
   border: 1px solid #ddd;
   min-height: 180px;
   width: 100%;
@@ -201,13 +201,13 @@ main {
 
 .film-slider-container {
   width: 100%;
-  height: 550px; 
+  height: 550px;
   background: #000;
   overflow-x: auto;
   overflow-y: hidden;
   scroll-behavior: smooth;
   -ms-overflow-style: none;
-  scrollbar-width: none; 
+  scrollbar-width: none;
 }
 
 .film-slider-container::-webkit-scrollbar {
@@ -225,7 +225,7 @@ main {
 .film-vak {
   width: 450px;
   height: 500px;
-  background: #fff;
+  background: #f5f5f5;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
   display: flex;
   flex-direction: column;
@@ -237,7 +237,7 @@ main {
   width: 100%;
   height: auto; /* poster neemt 65% van het vak in */
   object-fit: contain; /* hele plaatje zichtbaar, geen crop */
-  background: #eee;
+  background: #f5f5f5;
   display: block;
 }
 
@@ -294,13 +294,15 @@ main {
   display: none;
 }
 
-
 .vestiging-kaart {
-  background: #fff;
+  background: #f5f5f5;
   border-radius: 8px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: transform 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 }
 
 .vestiging-kaart:hover {
@@ -309,21 +311,30 @@ main {
 
 .vestiging-afbeelding {
   width: 100%;
-  height: 200px; /* Pas de hoogte aan indien nodig */
-  object-fit: cover;
-}
-
-.vestiging-info {
-  padding: 16px;
-  text-align: center;
-}
-
-.vestiging-afbeelding {
-  width: 100%;
   height: 160px;
-  object-fit: cover;
-  background: #eee;
+  object-fit: contain;
+  background: #f5f5f5;
+  display: block;
 }
+.vestiging-info {
+  text-align: left;
+  display: center;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.vestiging-stad {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.vestiging-adres {
+  font-size: 20px;
+  color: #444;
+  margin-bottom: 8px;
+}
+
 .vestiging-btn {
   background: #666;
   color: #fff;
@@ -332,10 +343,14 @@ main {
   padding: 10px;
   cursor: pointer;
   transition: background 0.3s;
+  margin-top: 8px;
 }
+
 .vestiging-btn:hover {
   background: #444;
 }
+
+
 @media (max-width: 768px) {
   .header-container {
     flex-direction: column;
