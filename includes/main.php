@@ -43,11 +43,14 @@ if ($conn->connect_error) {
     </div>
 </div>
 <div class="nieuws-container">
- <?php
+    <?php
+
+    $sql = "SELECT * FROM nieuws ORDER BY publiceerdatum DESC";
     // Haal nieuwsitems op
-    $result = $conn->query("SELECT * FROM nieuws ORDER BY publiceerdatum DESC");
+    $result = $conn->query($sql);
     while ($nieuws = $result->fetch_assoc()): ?>
         <div class="nieuws-grid">
+            <img src="assets/img/<?php echo htmlspecialchars($nieuws['afbeelding']); ?>" alt="Nieuws" class="nieuws-afbeelding">
             <h2><?php echo htmlspecialchars($nieuws['titel']); ?></h2>
             <p><?php echo htmlspecialchars($nieuws['beschrijving']); ?></p>
             <p><?php echo htmlspecialchars($nieuws['samenvatting']); ?></p>
