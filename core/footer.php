@@ -1,7 +1,10 @@
 <<<<<<< Updated upstream:core/footer.php
 <<<<<<< Updated upstream:core/footer.php
+<<<<<<< Updated upstream:core/footer.php
 
 <link rel="stylesheet" href="./assets/footer.css">
+=======
+>>>>>>> Stashed changes:includes/footer.php
 =======
 >>>>>>> Stashed changes:includes/footer.php
 =======
