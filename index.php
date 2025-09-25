@@ -13,7 +13,6 @@
     <?php include 'includes/header.php'; ?>
     <?php include 'includes/main.php'; ?>
     <?php include 'includes/footer.php'; ?>
-      <script src="assets/film-slider.js"></script>
 </body>
 
 </html>
