@@ -15,19 +15,15 @@ try {
     $hasTrailer  = $_GET['has_trailer'] ?? null;
 
     $sql = "
-        SELECT DISTINCT m.id, m.title, m.release_date, m.vote_average, 
-               m.overview, m.runtime, m.poster_path
-        FROM movies m
-        LEFT JOIN movie_genres mg ON m.id = mg.movie_id
-        LEFT JOIN genres g ON mg.genre_id = g.id
-        LEFT JOIN movie_cast mc ON m.id = mc.movie_id
-        LEFT JOIN actors a ON mc.actor_id = a.id
-        LEFT JOIN crew c ON m.id = c.movie_id
-        LEFT JOIN videos v ON m.id = v.movie_id
-        WHERE 1=1
-    ";
+    SELECT DISTINCT m.id, m.title, m.release_date, m.vote_average, 
+           m.overview, m.runtime, m.poster_path
+    FROM movies m
+    INNER JOIN vertoningen v ON m.id = v.movie_id
+    WHERE v.vestiging_id = ?
+";
+$params = [$vestiging_id];
 
-    $params = [];
+
 
     if ($day) {
         $sql .= " AND DATE(m.release_date) = ? ";

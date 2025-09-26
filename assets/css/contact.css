@@ -1,43 +1,43 @@
 /* Basisstyling */
 body {
     font-family: 'Arial', sans-serif;
-    background: #111; /* donker bioscoop-achtig */
-    color: #fff;
+    background-image: url("../img/achtergrondbios.jpg");
+    color: black;
     margin: 0;
     padding: 0;
 }
 
-#content {
+#contact-content {
     max-width: 600px;
     margin: 50px auto;
     padding: 30px;
     background: #1c1c1c;
     border-radius: 15px;
-    box-shadow: 0 0 20px rgba(255, 0, 100, 0.5);
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
 }
 
-h2 {
+.contact-title {
     text-align: center;
-    color: #ff0066;
+    color: #ff0000;
     margin-bottom: 30px;
-    font-family: 'Courier New', monospace;
-    text-shadow: 0 0 5px #ff0066;
+    font-family: 'Arial Black', sans-serif;
+    font-weight: bold;
 }
 
-.formulier .form-group {
+.contact-form .contact-group {
     margin-bottom: 20px;
 }
 
-.formulier label {
+.contact-form label {
     display: block;
     margin-bottom: 8px;
     font-weight: bold;
-    color: #ff66cc;
+    color: #ff4d4d;
 }
 
-.formulier input[type="text"],
-.formulier input[type="email"],
-.formulier textarea {
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
     width: 100%;
     padding: 12px;
     border: 2px solid #333;
@@ -49,31 +49,31 @@ h2 {
     transition: border 0.3s, box-shadow 0.3s;
 }
 
-.formulier input[type="text"]:focus,
-.formulier input[type="email"]:focus,
-.formulier textarea:focus {
-    border-color: #ff0066;
-    box-shadow: 0 0 10px #ff0066;
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form textarea:focus {
+    border-color: #ff0000;
+    box-shadow: 0 0 8px rgba(255, 0, 0, 0.6);
 }
 
-.formulier input[type="submit"] {
+.contact-form input[type="submit"] {
     width: 100%;
     padding: 15px;
     border: none;
     border-radius: 12px;
-    background: #ff0066;
+    background: #ff0000;
     color: #fff;
     font-size: 18px;
     cursor: pointer;
     transition: background 0.3s, box-shadow 0.3s;
 }
 
-.formulier input[type="submit"]:hover {
-    background: #ff3399;
-    box-shadow: 0 0 15px #ff3399;
+.contact-form input[type="submit"]:hover {
+    background: #cc0000;
+    box-shadow: 0 0 12px rgba(204, 0, 0, 0.6);
 }
 
-.success {
+.contact-success {
     background: #00cc66;
     color: #111;
     padding: 10px;
@@ -83,7 +83,7 @@ h2 {
     font-weight: bold;
 }
 
-.error {
+.contact-error {
     background: #cc0000;
     color: #fff;
     padding: 10px;

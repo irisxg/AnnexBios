@@ -1,6 +1,6 @@
 <?php
 session_start();
-require '../database.sql/db.php';
+require '../db/db.php';
 include "../includes/header.php";
 
 $success = '';
@@ -42,32 +42,33 @@ $conn->close();
     <link rel="stylesheet" href="assets/contact.css">
 </head>
 <body>
-    <div id="content">
-        <h2>Contact Admin</h2>
+    <div id="contact-content">
+        <h2 class="contact-title">Contact Admin</h2>
 
-        <?php if (!empty($success)) echo "<p class='success'>$success</p>"; ?>
-        <?php if (!empty($error)) echo "<p class='error'>$error</p>"; ?>
+        <?php if (!empty($success)) echo "<p class='contact-success'>$success</p>"; ?>
+        <?php if (!empty($error)) echo "<p class='contact-error'>$error</p>"; ?>
 
-        <form method="post" class="formulier">
-            <div class="form-group">
+        <form method="post" class="contact-form">
+            <div class="contact-group">
                 <label for="naam">Naam:</label>
                 <input type="text" id="naam" name="naam" required>
             </div>
 
-            <div class="form-group">
+            <div class="contact-group">
                 <label for="email">E-mail:</label>
                 <input type="email" id="email" name="email" required>
             </div>
 
-            <div class="form-group">
+            <div class="contact-group">
                 <label for="bericht">Bericht:</label>
                 <textarea id="bericht" name="bericht" rows="5" required></textarea>
             </div>
 
-            <div class="form-group">
+            <div class="contact-group">
                 <input type="submit" value="Verstuur">
             </div>
         </form>
     </div>
 </body>
+<?php include '../includes/footer.php';?> 
 </html>

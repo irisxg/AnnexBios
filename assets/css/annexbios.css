@@ -1,0 +1,490 @@
+/* Algemene reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-image: url("../img/achtergrondbios.jpg");
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* voorkomt zoom bij scrollen */
+  font-family: Arial, sans-serif;
+}
+
+
+main {
+  margin: auto;
+  position: relative;
+  max-width: 1200px;
+  padding: 20px;
+}
+
+/* Header */
+.hoofd-header {
+  background: #fff;
+  padding: 20px 0;
+}
+
+.hamburger-knop {
+  display: none;
+  font-size: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #666;
+  margin-left: 15px;
+}
+
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+
+.logo-afbeelding {
+  height: 90px;
+}
+
+.hoofd-navigatie {
+  display: flex;
+}
+
+.navigatie-lijst {
+  display: flex;
+  list-style: none;
+  gap: 60px;
+}
+
+
+.navigatie-link {
+  text-decoration: none;
+  color: #666;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+
+.navigatie-link:hover {
+  color: #444;
+}
+
+/* Ticket sectie */
+.ticket-sectie {
+  background: #666;
+  padding: 15px 0;
+}
+
+.ticket-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  padding: 0 40px;
+}
+
+.ticket-titel {
+  color: #fff;
+  font-size: 18px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.ticket-formulier {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.locatie-selectie,
+.tickets-knop {
+  border: none;
+  font-size: 14px;
+  border-radius: 0;
+  cursor: pointer;
+}
+
+.locatie-selectie {
+  background: #999;
+  color: #fff;
+  padding: 12px 20px;
+  min-width: 200px;
+  appearance: none;
+}
+
+.locatie-selectie option {
+  background: #999;
+  color: #fff;
+}
+
+.tickets-knop {
+  background: #ccc;
+  color: #666;
+  padding: 12px 25px;
+  text-transform: uppercase;
+  transition: background 0.3s;
+}
+
+.tickets-knop:hover {
+  background: #bbb;
+}
+
+/* Zwart vak */
+.zwart-vak {
+  background: #000;
+  color: #fff;
+  width: 100%;
+  margin: 40px auto;
+  border-radius: 8px;
+  padding: 30px;
+  font-size: 16px;
+  line-height: 1.5;
+  position: relative;
+  z-index: 10;
+}
+
+.lees-meer {
+  line-height: 1.7;
+  color: #fff;
+  display: inline-block;
+}
+
+.lees-meer-titel {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Vestigingen grid */
+.vestigingen-grid {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  justify-items: center;
+  padding: 20px 0;
+}
+
+.vestiging-kaart {
+  background: #f5f5f5;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  transition: transform 0.3s;
+}
+
+.vestiging-kaart:hover {
+  transform: scale(1.05);
+}
+
+.vestiging-afbeelding {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.vestiging-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 15px;
+}
+
+.vestiging-btn {
+  background: #666;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-top: 10px;
+}
+
+.vestiging-btn:hover {
+  background: #444;
+}
+
+/* Film slider */
+.film-slider-container {
+  min-height: 700px;
+  background: #000;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  padding: 40px 0;
+}
+
+.film-slider-container::-webkit-scrollbar {
+  display: none;
+}
+
+.film-slider {
+  display: flex;
+  gap: 20px;
+  padding: 0 20px;
+  flex-wrap: nowrap;
+  max-width: 1400px !important;
+}
+
+.film-vak {
+  flex: 0 0 280px;
+  height: auto;
+  min-height: 500px;
+  max-height: 600px;
+  background: #f5f5f5;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.film-vak:hover {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+}
+
+.film-poster {
+  max-width: 100%;
+  height: auto;
+  min-height: 45%;
+  object-fit: cover;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  flex-shrink: 0;
+}
+.film-info {
+  flex: 1 1 auto;
+  padding: 16px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow: auto;
+}
+
+/* Film info tekst */
+.film-titel {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #222;
+}
+
+.film-release,
+.film-runtime {
+  font-size: 0.95rem;
+  color: #666;
+}
+
+.film-overview {
+  font-size: 0.97rem;
+  color: #444;
+  margin-top: 6px;
+  line-height: 1.4;
+  overflow: visible;
+  display: block;
+  -webkit-line-clamp: unset;
+}
+
+/* Nieuwssectie */
+.nieuws-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.lange-blok {
+  grid-column: 1 / -1;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #f5f5f5;
+  border-radius: 8px;
+}
+
+.lange-blok img {
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.nieuwsitem {
+  width: 100%;
+  padding: 10px;
+  background: #f5f5f5;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.nieuws-afbeelding {
+  width: 100%;
+  height: auto;
+  max-height: 250px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.nieuwsitem h2 {
+  font-size: 22px;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.nieuwsitem p {
+  font-size: 16px;
+  color: #444;
+  margin-bottom: 8px;
+}
+
+.nieuws-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header-container,
+  .ticket-container {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px 20px;
+  }
+
+  .ticket-formulier {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .locatie-selectie,
+  .tickets-knop {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .nieuws-container,
+  .nieuws-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lange-blok img {
+    max-height: 300px;
+  }
+
+  .film-vak {
+    flex: 0 0 70%;
+    height: 400px;
+  }
+
+  .film-slider-container {
+    min-height: 800px;
+ 
+  }
+
+  .hamburger-knop {
+    display: block;
+  }
+
+  /* Verberg navigatie standaard */
+  .hoofd-navigatie {
+    display: none;
+    width: 100%;
+  }
+
+  /* Navigatie opengeklapt */
+  .hoofd-navigatie.open {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  /* Links onder elkaar */
+  .navigatie-lijst {
+    flex-direction: column;
+    gap: 15px;
+    padding: 0;
+  }
+
+  .navigatie-link {
+    display: block;
+    padding: 10px 0;
+    font-size: 16px;
+    border-bottom: 1px solid #ddd;
+  }
+
+}
+
+@media (max-width: 480px) {
+  .navigatie-lijst {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+
+  .nieuwsitem h2 {
+    font-size: 18px;
+  }
+
+  .nieuwsitem p {
+    font-size: 14px;
+  }
+
+  .lange-blok img {
+    max-height: 250px;
+  }
+
+  .film-vak {
+    flex: 0 0 90%;
+    height: 350px;
+  }
+
+  .film-slider-container {
+    min-height: auto;
+    padding: 20px 0;
+}
+
+}
